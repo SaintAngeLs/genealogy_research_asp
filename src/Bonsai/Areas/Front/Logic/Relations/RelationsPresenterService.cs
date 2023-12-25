@@ -106,7 +106,7 @@ namespace Bonsai.Areas.Front.Logic.Relations
             {
                 new RelationCategoryVM
                 {
-                    Title = "Родственники",
+                    Title = "Relatives",
                     IsMain = true,
                     Groups = GetGroups(ctx, pageId, ParentRelations)
                         .Concat(GetSpouseGroups(ctx, pageId))
@@ -115,12 +115,12 @@ namespace Bonsai.Areas.Front.Logic.Relations
                 },
                 new RelationCategoryVM
                 {
-                    Title = "Люди",
+                    Title = "People",
                     Groups = GetGroups(ctx, pageId, NonRelativeRelations).ToList(),
                 },
                 new RelationCategoryVM
                 {
-                    Title = "Страницы",
+                    Title = "Pages",
                     Groups = GetGroups(ctx, pageId, NonHumanRelations).ToList(),
                 }
             };

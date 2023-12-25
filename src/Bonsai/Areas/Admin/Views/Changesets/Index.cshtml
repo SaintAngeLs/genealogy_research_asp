@@ -7,7 +7,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model ChangesetsListVM
 @{
-    ViewBag.Title = "Список правок";
+    ViewBag.Title = "Edit List";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var baseUrl = Url.Action("Index", "Changesets", new { area = "Admin" });
@@ -48,8 +48,8 @@
                 request = Model.Request,
                 propName = nameof(ChangesetsListRequestVM.EntityTypes)
             })
-            <input type="text" class="form-control form-control-sm mr-sm-2" name="@nameof(ChangesetsListRequestVM.SearchQuery)" value="@Model.Request.SearchQuery" placeholder="Название" />
-            <button class="btn btn-sm btn-outline-secondary" type="submit">Найти</button>
+            <input type="text" class="form-control form-control-sm mr-sm-2" name="@nameof(ChangesetsListRequestVM.SearchQuery)" value="@Model.Request.SearchQuery" placeholder="Title" />
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
         </form>
     </div>
 </div>
@@ -60,11 +60,11 @@
         <thead>
             <tr>
                 <th width="1px"></th>
-                <th width="30%">Название</th>
-                <th width="15%">Тип</th>
-                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Date), title = "Дата" })</th>
-                <th width="15%">Действие</th>
-                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Author), title = "Автор" })</th>
+                <th width="30%">Title</th>
+                <th width="15%">Type</th>
+                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Date), title = "Date" })</th>
+                <th width="15%">Action</th>
+                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Author), title = "Author" })</th>
                 <th width="1px"></th>
             </tr>
         </thead>
@@ -73,12 +73,12 @@
             {
                 <tr class="admin-row">
                     <td class="admin-full-image">
-                        <a href="@Url.Action("Details", "Changesets", new {area = "Admin", id = c.Id})" title="Просмотреть">
+                        <a href="@Url.Action("Details", "Changesets", new {area = "Admin", id = c.Id})" title="View">
                             <div class="image" style="background-image: url('@Url.Content(c.EntityThumbnailUrl)')"></div>
                         </a>
                     </td>
                     <td>
-                        <a href="@Url.Action("Details", "Changesets", new {area = "Admin", id = c.Id})" title="Просмотреть">
+                        <a href="@Url.Action("Details", "Changesets", new {area = "Admin", id = c.Id})" title="View">
                             @(StringHelper.Coalesce(c.EntityTitle, "—"))
                         </a>
                     </td>
@@ -105,7 +105,7 @@
                         @if (c.CanRevert)
                         {
                             <a href="@Url.Action("Revert", "Changesets", new {area = "Admin", id = c.Id})">
-                                <span class="fa fa-history" title="Восстановить"></span>
+                                <span class="fa fa-history" title="Restore"></span>
                             </a>
                         }
                         @if (c.EntityExists)
@@ -120,7 +120,7 @@
                             if (outUrl != null)
                             {
                                 <a href="@outUrl" target="_blank">
-                                    <span class="fa fa-external-link-square" title="Просмотреть текущую версию"></span>
+                                    <span class="fa fa-external-link-square" title="View current version"></span>
                                 </a>
                             }
                         }

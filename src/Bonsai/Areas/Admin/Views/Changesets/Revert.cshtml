@@ -10,13 +10,13 @@
         switch (Model.EntityType)
         {
             case ChangesetEntityType.Media:
-                return dative ? "медиа-файл" : "медиа-файла";
+                return dative ? "media-file" : "media-file";
 
             case ChangesetEntityType.Page:
-                return dative ? "страницу" : "страницы";
+                return dative ? "page" : "page";
 
             case ChangesetEntityType.Relation:
-                return dative ? "отношение" : "отношения";
+                return dative ? "relation" : "relation";
         }
 
         return null;
@@ -24,7 +24,7 @@
 
     var isRemoving = Model.ChangeType == ChangesetType.Created;
 
-    ViewBag.Title = (isRemoving ? "Удаление " : "Восстановление ") + GetEntityType();
+    ViewBag.Title = (isRemoving ? "Deleting " : "Restoring ") + GetEntityType();
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 }
 
@@ -41,13 +41,13 @@
 
 <div class="row">
     <div class="col-sm-9">
-        <h3>Изменение</h3>
+        <h3>Changes</h3>
 
         <dl class="row">
-            <dt class="col-sm-2">Автор</dt>
+            <dt class="col-sm-2">Author</dt>
             <dd class="col-sm-10">@Model.Author</dd>
 
-            <dt class="col-sm-2">Дата</dt>
+            <dt class="col-sm-2">Date</dt>
             <dd class="col-sm-10">@Model.Date.ToLocalTime().ToString("f") (@Model.Date.ToLocalTime().Humanize())</dd>
         </dl>
     </div>
@@ -56,20 +56,20 @@
 @if (isRemoving)
 {
     <p>
-        Вы уверены, что хотите удалить @GetEntityType(dative: true)?<br />
+        Are you sure you want to delete @GetEntityType(dative: true)?<br />
     </p>
 }
 else
 {
     <p>
-        Вы уверены, что хотите восстановить предыдущее состояние @GetEntityType()?<br />
-        При этом будет сброшена текущая правка и все последующие, если они существуют.
+        Are you sure you want to restore the previous version @GetEntityType()?<br />
+        If you provided any editions they will be lost
     </p>
 }
 
 <form action="@Url.Action("Revert", "Changesets", new {area = "Admin"})" method="POST">
     <input type="hidden" name="confirm" value="true" />
     <input type="hidden" asp-for="Id" />
-    <button class="btn btn-danger" type="submit">@(isRemoving ? "Удалить" : "Восстановить")</button>
-    <a href="@Url.Action("Index", "Changesets", new {area = "Admin"})" class="btn btn-secondary">Отмена</a>
+    <button class="btn btn-danger" type="submit">@(isRemoving ? "Delete" : "Restore")</button>
+    <a href="@Url.Action("Index", "Changesets", new {area = "Admin"})" class="btn btn-secondary">Cancel</a>
 </form>

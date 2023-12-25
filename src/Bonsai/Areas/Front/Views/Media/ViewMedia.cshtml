@@ -37,7 +37,7 @@
                 <div class="meta-block">
                     <strong>
                         <span class="fa fa-fw fa-user-o"></span>
-                        Изображены
+                        Images
                     </strong>
                     <ul class="media-tags">
                         @foreach (var tag in Model.Tags)
@@ -57,7 +57,7 @@
                     <tr>
                         <th>
                             <span class="fa fa-fw fa-calendar-o"></span>
-                            Дата
+                            Date
                         </th>
                         <td>
                             @Model.Date.Value.ReadableDate
@@ -69,7 +69,7 @@
                     <tr>
                         <th>
                             <span class="fa fa-fw fa-star-o"></span>
-                            Событие
+                            Event
                         </th>
                         <td>
                             @pageLink(Model.Event)
@@ -81,7 +81,7 @@
                     <tr>
                         <th>
                             <span class="fa fa-fw fa-map-marker"></span>
-                            Место
+                            Place
                         </th>
                         <td>
                             @pageLink(Model.Location)
@@ -91,10 +91,10 @@
                 <tr>
                     <th>
                         <span class="fa fa-fw fa-arrow-circle-o-down"></span>
-                        Оригинал
+                        Original
                     </th>
                     <td>
-                        <a href="@Url.Content(Model.OriginalPath)" download>Скачать</a>
+                        <a href="@Url.Content(Model.OriginalPath)" download>Download</a>
                     </td>
                 </tr>
                 @if (user.IsAdministrator)
@@ -102,10 +102,10 @@
                     <tr>
                         <th>
                             <span class="fa fa-fw fa-cog"></span>
-                            Действия
+                            Actions
                         </th>
                         <td>
-                            <a href="@Url.Action("Update", "Media", new { area = "Admin", id = Model.Id })">Редактировать</a>
+                            <a href="@Url.Action("Update", "Media", new { area = "Admin", id = Model.Id })">Edit</a>
                         </td>
                     </tr>
                 }
