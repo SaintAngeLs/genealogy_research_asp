@@ -31,16 +31,16 @@ namespace Bonsai.Code.DomainModel.Facts.Models
     // ReSharper disable UnusedMember.Global
     public enum LanguageProficiency
     {
-        [Description("Базовый")]
+        [Description("Beginner")]
         Beginner,
 
-        [Description("Средний")]
+        [Description("Intermediate")]
         Intermediate,
 
-        [Description("Свободный")]
+        [Description("Advanced")]
         Profound,
 
-        [Description("Родной")]
+        [Description("Native")]
         Native
     }
 }

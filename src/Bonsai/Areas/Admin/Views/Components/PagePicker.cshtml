@@ -4,7 +4,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Выбор страницы</h5>
+                <h5 class="modal-title">Select page</h5>
                 <button type="button" class="close" data-dismiss="modal">
                     <span>&times;</span>
                 </button>
@@ -29,17 +29,17 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="scrollable">
-                    <div class="alert alert-info" v-if="!items || !items.length">По вашему запросу ничего не найдено.</div>
+                    <div class="alert alert-info" v-if="!items || !items.length">No results.</div>
                     <table class="table" v-if="items && items.length">
                         <tbody>
                         <tr class="admin-row" v-for="p in items">
                             <td class="admin-full-image">
-                                <a href="#" v-on:click="pick(p)" title="Выбрать">
+                                <a href="#" v-on:click="pick(p)" title="Select">
                                     <div class="image" v-bind:style="{'background-image': 'url(' + p.mainPhotoPath + ')'}"></div>
                                 </a>
                             </td>
                             <td>
-                                <a href="#" v-on:click="pick(p)" title="Выбрать">
+                                <a href="#" v-on:click="pick(p)" title="Select">
                                     {{p.title}}
                                 </a>
                             </td>

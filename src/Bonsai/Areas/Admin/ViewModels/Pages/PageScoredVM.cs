@@ -67,36 +67,36 @@ namespace Bonsai.Areas.Admin.ViewModels.Pages
         {
             get
             {
-                yield return GetCriterion("Текст", x => x.HasText);
+                yield return GetCriterion("Text", x => x.HasText);
 
                 if (Type == PageType.Person)
                 {
-                    yield return GetCriterion("Имя", x => x.HasHumanName);
-                    yield return GetCriterion("День рождения", x => x.HasBirthday);
-                    yield return GetCriterion("Место рождения", x => x.HasBirthPlace);
-                    yield return GetCriterion("Пол", x => x.HasGender);
-                    yield return GetCriterion("Фото", x => x.HasPhoto);
-                    yield return GetCriterion("Связи", x => x.HasRelations);
+                    yield return GetCriterion("Name", x => x.HasHumanName);
+                    yield return GetCriterion("Birth date", x => x.HasBirthday);
+                    yield return GetCriterion("Birth place", x => x.HasBirthPlace);
+                    yield return GetCriterion("Gender", x => x.HasGender);
+                    yield return GetCriterion("Photo", x => x.HasPhoto);
+                    yield return GetCriterion("Relations", x => x.HasRelations);
                 }
 
                 if (Type == PageType.Pet)
                 {
-                    yield return GetCriterion("Имя", x => x.HasAnimalName);
-                    yield return GetCriterion("День рождения", x => x.HasBirthday);
-                    yield return GetCriterion("Вид", x => x.HasAnimalSpecies);
-                    yield return GetCriterion("Фото", x => x.HasPhoto);
-                    yield return GetCriterion("Связи", x => x.HasRelations);
+                    yield return GetCriterion("Name", x => x.HasAnimalName);
+                    yield return GetCriterion("Birth Date", x => x.HasBirthday);
+                    yield return GetCriterion("View", x => x.HasAnimalSpecies);
+                    yield return GetCriterion("Photo", x => x.HasPhoto);
+                    yield return GetCriterion("Relations", x => x.HasRelations);
                 }
 
                 if (Type == PageType.Event)
                 {
-                    yield return GetCriterion("Дата", x => x.HasEventDate);
+                    yield return GetCriterion("Date", x => x.HasEventDate);
                 }
 
                 if (Type == PageType.Location)
                 {
-                    yield return GetCriterion("Адрес", x => x.HasLocationAddress);
-                    yield return GetCriterion("Фото", x => x.HasPhoto);
+                    yield return GetCriterion("Address", x => x.HasLocationAddress);
+                    yield return GetCriterion("Photo", x => x.HasPhoto);
                 }
             }
         }

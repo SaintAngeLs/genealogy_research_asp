@@ -5,19 +5,19 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model RelationsListVM
 @{
-    ViewBag.Title = "Список связей";
+    ViewBag.Title = "Connection space";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var baseUrl = Url.Action("Index", "Relations", new { area = "Admin" });
 }
 
-<h1>Список связей</h1>
+<h1>Connection space (Links list)</h1>
 
 <div class="clearfix">
     <div class="float-left">
-        <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("Create", "Relations", new {area = "Admin"})" title="Создать новую связь">
+        <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("Create", "Relations", new {area = "Admin"})" title="Create new connection">
             <span class="fa fa-plus-circle"></span>
-            Создать
+            Create
         </a>
     </div>
     <div class="float-right">
@@ -37,8 +37,8 @@
                     title = Model.EntityTitle
                 })
             }
-            <input type="text" class="form-control form-control-sm mr-sm-2" name="@nameof(RelationsListRequestVM.SearchQuery)" value="@Model.Request.SearchQuery" placeholder="Имя страницы" />
-            <button class="btn btn-sm btn-outline-secondary" type="submit">Найти</button>
+            <input type="text" class="form-control form-control-sm mr-sm-2" name="@nameof(RelationsListRequestVM.SearchQuery)" value="@Model.Request.SearchQuery" placeholder="Page name" />
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
         </form>
     </div>
 </div>
@@ -48,9 +48,9 @@
     <table class="table table-bordered table-striped">
         <thead>
             <tr>
-                <th width="42%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(RelationTitleVM.Destination), title = "Cтраница" })</th>
-                <th width="16%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(RelationTitleVM.Type), title = "Тип связи" })</th>
-                <th width="42%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(RelationTitleVM.Source), title = "Связанная страница" })</th>
+                <th width="42%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(RelationTitleVM.Destination), title = "Page" })</th>
+                <th width="16%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(RelationTitleVM.Type), title = "Relation type" })</th>
+                <th width="42%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(RelationTitleVM.Source), title = "Related page" })</th>
                 <th width="1px"></th>
             </tr>
         </thead>
@@ -63,7 +63,7 @@
                     <span title="@r.Destination.Title">@r.Destination.Title</span>
                 </td>
                 <td>
-                    <a href="@Url.Action("Update", "Relations", new {area = "Admin", id = r.Id})" title="Редактировать">
+                    <a href="@Url.Action("Update", "Relations", new {area = "Admin", id = r.Id})" title="Edit">
                         @r.Type.GetEnumDescription()
                     </a>
                 </td>
@@ -73,10 +73,10 @@
                 </td>
                 <td class="admin-row-actions">
                     <a href="@Url.Action("Remove", "Relations", new {area = "Admin", id = r.Id})">
-                        <span class="fa fa-remove" title="Удалить"></span>
+                        <span class="fa fa-remove" title="Dlelte"></span>
                     </a>
                     <a href="@Url.Action("Index", "Changesets", new {area = "Admin", entityId = r.Id})">
-                        <span class="fa fa-database" title="История изменений"></span>
+                        <span class="fa fa-database" title="History changes"></span>
                     </a>
                 </td>
             </tr>
@@ -89,13 +89,13 @@ else
     if(Model.Request.IsEmpty())
     {
         <div class="alert alert-info">
-            Не добавлено ни одной связи. <br />
+            No connection added. <br />
         </div>
     }
     else
     {
         <div class="alert alert-info">
-            По запросу не найдено ни одной связи.
+            There is no relation for the request provided.
         </div>
     }
 }

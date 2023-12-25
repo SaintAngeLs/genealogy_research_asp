@@ -10,7 +10,7 @@
 <div class="typography">
     @if(Model.Body.References.Any())
     {
-        <p>На данную страницу ссылаются следующие страницы:</p>
+        <p>For this pages there are links in the next pages:</p>
         <ul>
             @foreach (var r in Model.Body.References)
             {
@@ -22,6 +22,6 @@
     }
     else
     {
-        <div class="text-muted">Ссылок на данную страницу нет.</div>
+        <div class="text-muted">Links for this page are not found</div>
     }
 </div>

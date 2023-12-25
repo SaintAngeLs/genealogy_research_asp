@@ -10,19 +10,19 @@ namespace Bonsai.Data.Models
         /// <summary>
         /// A page has been changed
         /// </summary>
-        [Description("Страница")]
+        [Description("Page")]
         Page,
 
         /// <summary>
         /// A media file has been changed
         /// </summary>
-        [Description("Медиа")]
+        [Description("Media")]
         Media,
 
         /// <summary>
         /// A relation has been changed
         /// </summary>
-        [Description("Связь")]
+        [Description("Relation")]
         Relation
     }
 }

@@ -133,7 +133,7 @@
 
     function setupDatePicker($elem, $prev, $next) {
         $elem.datepicker({
-            locale: 'ru-ru',
+            locale: 'en-en',
             uiLibrary: 'bootstrap4',
             format: 'yyyy.mm.dd',
             minDate: function () {

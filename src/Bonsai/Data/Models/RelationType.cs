@@ -7,39 +7,39 @@ namespace Bonsai.Data.Models
     /// </summary>
     public enum RelationType
     {
-        [Description("Родитель")]
+        [Description("Parent")]
         Parent,
-        [Description("Ребенок")]
+        [Description("Child")]
         Child,
-        [Description("Супруг")]
+        [Description("Spouse")]
         Spouse,
 
-        [Description("Приемный родитель")]
+        [Description("StepParent")]
         StepParent,
-        [Description("Приемный ребенок")]
+        [Description("StepChild")]
         StepChild,
 
-        [Description("Друг")]
+        [Description("Friend")]
         Friend,
-        [Description("Коллега")]
+        [Description("Colleague")]
         Colleague,
 
-        [Description("Хозяин")]
+        [Description("Owner")]
         Owner,
-        [Description("Питомец")]
+        [Description("Pet")]
         Pet,
 
-        [Description("Место")]
+        [Description("Location")]
         Location,
-        [Description("Житель")]
+        [Description("Location Inhabitant")]
         LocationInhabitant,
 
-        [Description("Событие")]
+        [Description("Event")]
         Event,
-        [Description("Участник")]
+        [Description("Event Visitor")]
         EventVisitor,
 
-        [Description("Прочее")]
+        [Description("Other")]
         Other
     }
 }

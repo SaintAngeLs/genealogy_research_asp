@@ -2,7 +2,7 @@
     var allowFuzzy = !$d.is('.datepicker-strict');
 
     $d.datepicker({
-        locale: 'ru-ru',
+        locale: 'en-en',
         uiLibrary: 'bootstrap4',
         format: 'yyyy.mm.dd',
         change: function(e) {
@@ -12,7 +12,7 @@
 
     $d.prop('autocomplete', 'off');
     $d.tooltip({
-        title: 'Недопустимая дата'
+        title: 'Inappropriate date'
     });
 
     $d.on('click', function () {

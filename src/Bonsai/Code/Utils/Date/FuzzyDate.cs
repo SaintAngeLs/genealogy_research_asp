@@ -156,7 +156,7 @@ namespace Bonsai.Code.Utils.Date
             {
                 var max = years + 1;
                 if (years < 0)
-                    return "Меньше года";
+                    return "Less than a year";
 
                 if (now.Month > Month)
                     return FullYears(max);
@@ -185,7 +185,7 @@ namespace Bonsai.Code.Utils.Date
             }
 
             if (years == 0 && months == 0)
-                return "Меньше месяца";
+                return "Less than a month";
 
             var yearsWord = years == 0 ? null : FullYears(years);
             var monthsWord = months == 0 || years >= 3 ? null : $"{months} {MonthsWord(months)}";
@@ -195,8 +195,8 @@ namespace Bonsai.Code.Utils.Date
 
             return yearsWord ?? monthsWord;
 
-            string YearsWord(int count) => GetNumberWord(count, "год", "года", "лет");
-            string MonthsWord(int count) => GetNumberWord(count, "месяц", "месяца", "месяцев");
+            string YearsWord(int count) => GetNumberWord(count, "year", "year", "years");
+            string MonthsWord(int count) => GetNumberWord(count, "month", "month", "months");
             string FullYears(int count) => count + " " + YearsWord(count);
             string GetNumberWord(int number, string one, string twoToFour, string other)
             {
@@ -366,18 +366,18 @@ namespace Bonsai.Code.Utils.Date
         private static string[] MonthNamesNominative =
         {
             "",
-            "январь",
-            "февраль",
-            "март",
-            "апрель",
-            "май",
-            "июнь",
-            "июль",
-            "август",
-            "сентябрь",
-            "октябрь",
-            "ноябрь",
-            "декабрь"
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
         };
 
         /// <summary>
@@ -386,19 +386,20 @@ namespace Bonsai.Code.Utils.Date
         private static string[] MonthNamesGenitive =
         {
             "",
-            "января",
-            "февраля",
-            "марта",
-            "апреля",
-            "мая",
-            "июня",
-            "июля",
-            "августа",
-            "сентября",
-            "октября",
-            "ноября",
-            "декабря"
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
         };
+
 
         #endregion
 

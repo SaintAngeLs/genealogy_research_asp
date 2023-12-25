@@ -4,7 +4,7 @@
     <div class="fact-wrapper">
         <h6>
             {{def.title}}
-            <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="add({}, 'language')" title="Указать факт">
+            <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="add({}, 'language')" title="Provide the fact">
                 <i class="fa fa-plus"></i>
             </button>
         </h6>
@@ -13,16 +13,16 @@
                 <div class="col-sm-8 form form-fact fact-list-item">
                     <div class="form-row">
                         <div class="form-group col-sm-8">
-                            <label>Язык</label>
+                            <label>Language</label>
                             <input type="text" v-model="row.Name" class="form-control form-control-sm mr-2" />
                         </div>
                         <div class="form-group col-sm-4">
-                            <button type="button" class="btn btn-outline-danger btn-sm btn-remove-fact" v-on:click="remove(row)" title="Удалить факт">
+                            <button type="button" class="btn btn-outline-danger btn-sm btn-remove-fact" v-on:click="remove(row)" title="Dlete fact">
                                 <i class="fa fa-remove"></i>
                             </button>
-                            <label>Уровень</label>
+                            <label>Level</label>
                             <select v-model="row.Proficiency" class="form-control form-control-sm mr-2">
-                                <option v-bind:value="null">Не указано</option>
+                                <option v-bind:value="null">Not provided</option>
                                 @foreach(var prof in EnumHelper.GetEnumDescriptions<LanguageProficiency>())
                                 {
                                     <option value="@prof.Key">@prof.Value</option>

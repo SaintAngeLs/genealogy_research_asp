@@ -5,7 +5,7 @@
 @{
     Layout = "TreeLayout";
     
-    ViewBag.Title = Model.Title + " — Фамильное древо";
+    ViewBag.Title = Model.Title + " — Family tree";
 
     var cfg = ConfigService.GetDynamicConfig();
 }
@@ -19,12 +19,12 @@
     </div>
     <div class="tree-preloader">
         <h4>
-            Загрузка...
+            Loading...
             <img src="@Url.Content("~/assets/img/loading.gif")" alt="Loading"/>
         </h4>
     </div>
     <div class="tree-error">
-        <h4>Не удалось загрузить дерево.</h4>
+        <h4>Tree generating failure.</h4>
     </div>
 </div>
 

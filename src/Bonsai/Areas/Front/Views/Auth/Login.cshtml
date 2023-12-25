@@ -5,7 +5,7 @@
 @inject BonsaiConfigService Config
 
 @{
-    ViewBag.Title = "Авторизация";
+    ViewBag.Title = "Authorization";
     ViewBag.DisableSearch = true;
     Layout = "~/Areas/Front/Views/Layout.cshtml";
 
@@ -14,50 +14,50 @@
 }
 
 <div class="content text">
-    <h1>Авторизация</h1>
+    <h1>Authorization</h1>
 
     @if (data.Status == LoginStatus.Failed)
     {
         <div class="alert alert-danger">
-            <b>Ошибка:</b> Не удалось авторизоваться.<br />Возможно, вы ввели некорректный пароль? Попробуйте снова.
+            <b>Error:</b> Authorization error.<br />Maybe, the password was not correct? Please, try again.
         </div>
     }
     else if (data.Status == LoginStatus.LockedOut)
     {
         <div class="alert alert-danger">
-            <b>Ошибка:</b>Ваша учетная запись заблокирована.
+            <b>Error:</b>Your profile is not available.
         </div>
     }
     else if (data.Status == LoginStatus.Unvalidated)
     {
-        <p>Ваша учетная запись еще не была проверена администратором.</p>
-        <p>Пожалуйста, дождитесь проверки - тогда вы сможете пользоваться системой.</p>
+        <p>Your profile was not checked by admin.</p>
+        <p>Please waint until the admin validate you request.</p>
     }
 
     @if (data.Status == LoginStatus.Failed || data.Status == null)
     {
         if (!data.AllowGuests)
         {
-            <p>Страница доступна только для зарегистрированных пользователей.</p>
+            <p>The page is available for the registered users only.</p>
         }
 
-        <p>Пожалуйста, авторизуйтесь с помощью одного из доступных сервисов:</p>
+        <p>Please authorize with the one of the next services:</p>
 
         <form action="@Url.Action("ExternalLogin")" method="post">
             <input type="hidden" name="returnUrl" value="@data.ReturnUrl" />
             <div class="social-buttons">
                 @foreach (var prov in data.Providers)
                 {
-                    <button type="submit" class="btn btn-lg btn-outline-primary btn-social" name="provider" value="@prov.Key" title="Вход через @prov.Caption">
+                    <button type="submit" class="btn btn-lg btn-outline-primary btn-social" name="provider" value="@prov.Key" title="Log in with @prov.Caption">
                         <i class="@prov.IconClass"></i>
                         <span>@prov.Caption</span>
                     </button>
                 }
                 @if (data.AllowPasswordAuth && data.IsFirstUser)
                 {
-                    <a href="@Url.Action("Register")" class="btn btn-lg btn-outline-primary btn-social" title="Вход по логину и паролю">
+                    <a href="@Url.Action("Register")" class="btn btn-lg btn-outline-primary btn-social" title="Log in with login and password">
                         <i class="fa fa-key"></i>
-                        <span>Пароль</span>
+                        <span>Password</span>
                     </a>
                 }
             </div>
@@ -65,26 +65,26 @@
 
         @if (data.AllowPasswordAuth && !data.IsFirstUser)
         {
-            <p>Или введите логин и пароль, полученный от администратора.</p>
+            <p>Or provide the login and password obrained from admin.</p>
 
             <div class="row">
                 <div class="col-sm-5">
                     <form action="@Url.Action("Login")" method="post">
                         <input type="hidden" name="returnUrl" value="@data.ReturnUrl" />
                         <div class="form-group row">
-                            <label class="col-3 col-form-label" for="Login">Логин</label>
+                            <label class="col-3 col-form-label" for="Login">Login</label>
                             <div class="col-sm-9">
                                 <input type="text" asp-for="Login" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-3 col-form-label" for="Password">Пароль</label>
+                            <label class="col-3 col-form-label" for="Password">Password</label>
                             <div class="col-sm-9">
                                 <input type="password" asp-for="Password" class="form-control" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-outline-primary">Войти</button>
+                            <button type="submit" class="btn btn-outline-primary">Log in</button>
                         </div>
                     </form>
                 </div>
@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="alert alert-info">
-                            <p>Демонстрационный аккаунт администратора:</p>
+                            <p>Demonstrative accound for admin:</p>
                             <p>
                                 <strong>Логин:</strong> admin@example.com<br />
                                 <strong>Пароль:</strong> 123456

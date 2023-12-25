@@ -2,7 +2,7 @@
     <div class="fact-wrapper">
         <h6>
             {{def.title}}
-            <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="add({}, 'name')" title="Указать факт">
+            <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="add({}, 'name')" title="Provide the fact">
                 <i class="fa fa-plus"></i>
             </button>
         </h6>
@@ -11,19 +11,19 @@
                 <div class="col-sm-8 form form-fact fact-list-item">
                     <div class="form-row">
                         <div class="form-group col-sm-4">
-                            <label>Фамилия</label>
-                            <input type="text" v-model="row.LastName" class="form-control form-control-sm mr-2" />
+                            <label>Last Name</label>
+                            <input type="text" v-model="row.LastName" class="form-control form-control-sm mr-2" placeholder="Last Name"/>
                         </div>
                         <div class="form-group col-sm-4">
-                            <label>Имя</label>
-                            <input type="text" v-model="row.FirstName" class="form-control form-control-sm mr-2" placeholder="Имя" />
+                            <label>Name</label>
+                            <input type="text" v-model="row.FirstName" class="form-control form-control-sm mr-2" placeholder="Name" />
                         </div>
                         <div class="form-group col-sm-4">
-                            <button type="button" class="btn btn-sm btn-outline-danger btn-remove-fact" v-on:click="remove(row)" title="Удалить факт">
+                            <button type="button" class="btn btn-sm btn-outline-danger btn-remove-fact" v-on:click="remove(row)" title="Delete fact">
                                 <i class="fa fa-remove"></i>
                             </button>
-                            <label>Отчество</label>
-                            <input type="text" v-model="row.MiddleName" class="form-control form-control-sm mr-2" placeholder="Отчество" />
+                            <label>Father Name</label>
+                            <input type="text" v-model="row.MiddleName" class="form-control form-control-sm mr-2" placeholder="Father Name" />
                         </div>
                     </div>
                     <duration-picker v-model="row.Duration" size="sm" />

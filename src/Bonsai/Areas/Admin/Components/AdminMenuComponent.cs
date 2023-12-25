@@ -35,16 +35,16 @@ namespace Bonsai.Areas.Admin.Components
             var groups = new List<MenuGroupVM>();
             groups.Add(
                 new MenuGroupVM(
-                    new MenuItemVM { Title = "Главная", Icon = "home", Url = Url.Action("Index", "Dashboard", new { area = "Admin" }) },
-                    new MenuItemVM { Title = "Правки", Icon = "database", Url = Url.Action("Index", "Changesets", new { area = "Admin" }) }
+                    new MenuItemVM { Title = "Main", Icon = "home", Url = Url.Action("Index", "Dashboard", new { area = "Admin" }) },
+                    new MenuItemVM { Title = "Edits", Icon = "database", Url = Url.Action("Index", "Changesets", new { area = "Admin" }) }
                 )
             );
 
             groups.Add(
                 new MenuGroupVM(
-                    new MenuItemVM { Title = "Страницы", Icon = "file-text-o", Url = Url.Action("Index", "Pages", new { area = "Admin" }) },
-                    new MenuItemVM { Title = "Связи", Icon = "retweet", Url = Url.Action("Index", "Relations", new { area = "Admin" }) },
-                    new MenuItemVM { Title = "Медиа", Icon = "picture-o", Url = Url.Action("Index", "Media", new { area = "Admin" })}
+                    new MenuItemVM { Title = "Pages", Icon = "file-text-o", Url = Url.Action("Index", "Pages", new { area = "Admin" }) },
+                    new MenuItemVM { Title = "Links", Icon = "retweet", Url = Url.Action("Index", "Relations", new { area = "Admin" }) },
+                    new MenuItemVM { Title = "Media", Icon = "picture-o", Url = Url.Action("Index", "Media", new { area = "Admin" })}
                 )
             );
 
@@ -53,8 +53,8 @@ namespace Bonsai.Areas.Admin.Components
                 var newUsers = await _db.Users.CountAsync(x => !x.IsValidated);
                 groups.Add(
                     new MenuGroupVM(
-                        new MenuItemVM { Title = "Доступ", Icon = "user-circle-o", Url = Url.Action("Index", "Users", new { area = "Admin" }), NotificationsCount = newUsers },
-                        new MenuItemVM { Title = "Настройки", Icon = "cog", Url = Url.Action("Index", "DynamicConfig", new { area = "Admin" }) }
+                        new MenuItemVM { Title = "Access", Icon = "user-circle-o", Url = Url.Action("Index", "Users", new { area = "Admin" }), NotificationsCount = newUsers },
+                        new MenuItemVM { Title = "Settings", Icon = "cog", Url = Url.Action("Index", "DynamicConfig", new { area = "Admin" }) }
                     )
                 );
             }

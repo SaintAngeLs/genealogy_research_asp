@@ -5,7 +5,7 @@
 @model Bonsai.Areas.Front.ViewModels.Home.HomeVM
 @{
     Layout = "~/Areas/Front/Views/Layout.cshtml";
-    ViewBag.Title = "Главная страница";
+    ViewBag.Title = "Main page";
 }
 
 <div class="calendar-wrapper">
@@ -20,7 +20,7 @@
         @if (Model.LastUpdatedPages.Any())
         {
             <div class="col-md-6">
-                <h5>Обновленные страницы</h5>
+                <h5>Updated pages</h5>
                 <ul class="home-pages-list">
                     @foreach (var p in Model.LastUpdatedPages)
                     {
@@ -44,7 +44,7 @@
         @if (Model.LastUploadedMedia.Any())
         {
             <div class="col-md-6">
-                <h5>Новые медиа-файлы</h5>
+                <h5>New media-files</h5>
                 <ul class="list-inline">
                     @foreach (var m in Model.LastUploadedMedia)
                     {
