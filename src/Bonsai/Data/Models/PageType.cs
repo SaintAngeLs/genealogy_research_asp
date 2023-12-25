@@ -7,19 +7,19 @@ namespace Bonsai.Data.Models
     /// </summary>
     public enum PageType
     {
-        [Description("Человек")]
+        [Description("Person")]
         Person = 0,
 
-        [Description("Питомец")]
+        [Description("Pet")]
         Pet = 1,
 
-        [Description("Событие")]
+        [Description("Event")]
         Event = 2,
 
-        [Description("Место")]
+        [Description("Place")]
         Location = 3,
 
-        [Description("Прочее")]
+        [Description("Others")]
         Other = 4
     }
 }

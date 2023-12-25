@@ -36,7 +36,7 @@
             .then(function (data) {
                 isModified = false;
                 var date = new Date(data.lastUpdateDate);
-                $draftInfo.text('Черновик сохранен в ' + date.toLocaleTimeString('ru-RU') + '.');
+                $draftInfo.text('Draf is saved at ' + date.toLocaleTimeString('en-US') + '.');
             });
     }
 
@@ -56,7 +56,7 @@
     }
 
     function discardDraft() {
-        var result = confirm('Все изменения для данной страницы будут сброшены.\n\nВы уверены?');
+        var result = confirm('All the changes would be reset for this page.\n\nAre you sure?');
         if (!result) {
             return;
         }

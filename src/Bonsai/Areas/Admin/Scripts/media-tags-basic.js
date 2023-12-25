@@ -9,13 +9,13 @@
     setupPagePicker($('#Location'), {
         create: true,
         types: [3],
-        placeholder: 'Страница или название'
+        placeholder: 'Page or name'
     });
 
     setupPagePicker($('#Event'), {
         create: true,
         types: [2],
-        placeholder: 'Страница или название'
+        placeholder: 'Page or name'
     });
 
     setupPagePicker($('#media-editor-tags-list'), {

@@ -12,20 +12,20 @@
     {
         var baseForm = evt.ChangeType switch {
             ChangesetType.Created => evt.EntityType == ChangesetEntityType.Media
-                ? "загрузил"
-                : "создал",
-            ChangesetType.Removed => "удалил",
-            ChangesetType.Updated => "обновил",
-            ChangesetType.Restored => "восстановил"
+                ? "uploaded"
+                : "created",
+            ChangesetType.Removed => "deleted",
+            ChangesetType.Updated => "updated",
+            ChangesetType.Restored => "restored"
             };
 
         return evt.User.IsMale == false ? baseForm + "а" : baseForm;
     }
 
     string GetEntityName(ChangesetEntityType entity) => entity switch {
-        ChangesetEntityType.Page => "cтраницу",
-        ChangesetEntityType.Media => "медиа-файл",
-        ChangesetEntityType.Relation => "связь"
+        ChangesetEntityType.Page => "page",
+        ChangesetEntityType.Media => "madia-file",
+        ChangesetEntityType.Relation => "relation"
     };
 
     string GetChangeClass(ChangesetType type) => type switch {
@@ -38,7 +38,7 @@
     string GetChangeDate(DateTimeOffset date)
     {
         return date < DateTimeOffset.Now.AddDays(-14)
-            ? date.LocalDateTime.ToString("dd MMMM yyyy", CultureInfo.GetCultureInfo("ru-RU"))
+            ? date.LocalDateTime.ToString("dd MMMM yyyy", CultureInfo.GetCultureInfo("en-US"))
             : date.Humanize().Capitalize();
     }
 }
@@ -64,7 +64,7 @@
                         {
                             <span>
                                 @GetChangeDescription(evt)
-                                @evt.ElementCount.DisplayNumeric("медиа-файл", "медиа-файла", "медиа-файлов")
+                                @evt.ElementCount.DisplayNumeric("media-file", "media-file's", "media-files")
                             </span>
                         }
                         else
@@ -119,7 +119,7 @@
                     @if (evt.EntityType == ChangesetEntityType.Relation && evt.ExtraLinks != null)
                     {
                         <span>
-                            между страницами: <a href="@evt.ExtraLinks[0].Url">@evt.ExtraLinks[0].Title</a> и <a href="@evt.ExtraLinks[1].Url">@evt.ExtraLinks[1].Title</a>
+                            between pages: <a href="@evt.ExtraLinks[0].Url">@evt.ExtraLinks[0].Title</a> и <a href="@evt.ExtraLinks[1].Url">@evt.ExtraLinks[1].Title</a>
                         </span>
                     }
                 }

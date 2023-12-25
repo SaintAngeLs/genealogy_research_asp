@@ -4,18 +4,18 @@
     Layout = "~/Areas/Front/Views/Page/PageLayout.cshtml";
 
     ViewBag.PageModel = Model;
-    ViewBag.Title = Model.Body.Title + " — Фамильное древо";
+    ViewBag.Title = Model.Body.Title + " — Family tree";
 
     var treeUrl = Url.Action("Main", "Tree", new {key = Model.Body.Key});
 }
 
 <div class="tree-view">
     <div class="mb-3 text-right">
-        <a class="btn btn-sm btn-outline-primary cmd-fullscreen" href="#" title="Во весь экран">
-            <span class="fa fa-arrows-alt"></span> Во весь экран
+        <a class="btn btn-sm btn-outline-primary cmd-fullscreen" href="#" title="Wlose screen">
+            <span class="fa fa-arrows-alt"></span> Whole screen
         </a>
-        <a class="btn btn-sm btn-outline-primary" href="@treeUrl" target="_blank" title="В новом окне">
-            <span class="fa fa-window-maximize"></span> В новом окне
+        <a class="btn btn-sm btn-outline-primary" href="@treeUrl" target="_blank" title="New window">
+            <span class="fa fa-window-maximize"></span> New window
         </a>
     </div>
     <iframe src="@treeUrl"></iframe>

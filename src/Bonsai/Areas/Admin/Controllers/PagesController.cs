@@ -99,7 +99,7 @@ namespace Bonsai.Areas.Admin.Controllers
                 await _search.AddPageAsync(page);
                 await _jobs.RunAsync(JobBuilder.For<EntireTreeLayoutJob>().SupersedeAll());
 
-                return RedirectToSuccess("Страница создана");
+                return RedirectToSuccess("The page is created");
             }
             catch (ValidationException ex)
             {
@@ -136,7 +136,7 @@ namespace Bonsai.Areas.Admin.Controllers
                 await _search.AddPageAsync(page);
                 await _jobs.RunAsync(JobBuilder.For<EntireTreeLayoutJob>().SupersedeAll());
 
-                return RedirectToSuccess("Страница обновлена");
+                return RedirectToSuccess("The page is updated");
             }
             catch (ValidationException ex)
             {
@@ -173,7 +173,7 @@ namespace Bonsai.Areas.Admin.Controllers
             await _search.RemovePageAsync(vm.Id);
             await _jobs.RunAsync(JobBuilder.For<EntireTreeLayoutJob>().SupersedeAll());
 
-            return RedirectToSuccess("Страница удалена");
+            return RedirectToSuccess("Tha page is deleted");
         }
 
         #region Helpers

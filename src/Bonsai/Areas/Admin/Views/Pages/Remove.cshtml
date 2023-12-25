@@ -5,12 +5,12 @@
 @using Bonsai.Areas.Front.ViewModels.Page
 
 @{
-    ViewBag.Title = "Удаление страницы";
+    ViewBag.Title = "Delete page";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
     var info = (RemoveEntryInfoVM<PageTitleExtendedVM>) ViewBag.Info;
 }
 
-<h1>Удаление страницы</h1>
+<h1>Delete page</h1>
 
 @if (!string.IsNullOrEmpty(info.Entry.MainPhotoPath))
 {
@@ -22,7 +22,7 @@
 }
 
 <p>
-    Вы уверены, что хотите удалить страницу <b>@info.Entry.Title</b>?<br />
+    Are you sure you want to delete this page <b>@info.Entry.Title</b>?<br />
 </p>
 
 <form action="@Url.Action("Remove", "Pages", new {area = "Admin"})" method="POST">
@@ -33,13 +33,13 @@
         <div class="form-group">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" asp-for="RemoveCompletely" id="RemoveCompletely" />
-                <label class="form-check-label" for="RemoveCompletely">Удалить страницу и все ее упоминания окончательно (восстановление будет невозможно)</label>
+                <label class="form-check-label" for="RemoveCompletely">Delte the page and its mentions (it will not be possible to restore)</label>
             </div>
         </div>
     }
     
     <div class="form-group">
-        <button class="btn btn-danger" type="submit">Удалить</button>
-        <a href="@Url.Action("Index", "Pages", new {area = "Admin"})" class="btn btn-secondary">Отмена</a>
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a href="@Url.Action("Index", "Pages", new {area = "Admin"})" class="btn btn-secondary">Cancel</a>
     </div>
 </form>

@@ -10,25 +10,25 @@ namespace Bonsai.Data.Models
         /// <summary>
         /// The entity has been created.
         /// </summary>
-        [Description("Создано")]
+        [Description("Created")]
         Created,
 
         /// <summary>
         /// The entity has been updated.
         /// </summary>
-        [Description("Изменено")]
+        [Description("Changed")]
         Updated,
 
         /// <summary>
         /// The entity has been removed.
         /// </summary>
-        [Description("Удалено")]
+        [Description("Deleted")]
         Removed,
 
         /// <summary>
         /// The previous changeset has been reverted.
         /// </summary>
-        [Description("Восстановлено")]
+        [Description("Restored")]
         Restored
     }
 }

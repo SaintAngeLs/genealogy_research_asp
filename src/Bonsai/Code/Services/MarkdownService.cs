@@ -158,7 +158,7 @@ namespace Bonsai.Code.Services
                 if (existingPages.TryGetValue(lowerKey, out var canonKey))
                     return $@"<a href=""{_url.Action("Description", "Page", new { area = "Front", key = canonKey })}"" class=""link"">{title}</a>";
 
-                return $@"<span class=""link-missing"" title=""Страница не найдена: {rawKey}"">{title}</span>";
+                return $@"<span class=""link-missing"" title=""Page is not found: {rawKey}"">{title}</span>";
             });
         }
 
@@ -181,10 +181,10 @@ namespace Bonsai.Code.Services
                     {
                         var size = item.Substring("size:".Length);
                         if (!MediaSizeClasses.Contains(size))
-                            return Error("Неизвестный размер медиа-файла.");
+                            return Error("Unknown the media-file size.");
 
                         if (sizeClass != null)
-                            return Error("Размер указан более одного раза.");
+                            return Error("File size provided more than 1 time");
 
                         sizeClass = size;
                         continue;
@@ -194,17 +194,17 @@ namespace Bonsai.Code.Services
                     {
                         var align = item.Substring("align:".Length);
                         if (!MediaAlignmentClasses.Contains(align))
-                            return Error("Неизвестное расположение медиа-файла.");
+                            return Error("Undefined file location.");
 
                         if (alignClass != null)
-                            return Error("Расположение указано более одного раза.");
+                            return Error("Location is provided more than 1 time");
 
                         alignClass = align;
                         continue;
                     }
 
                     if (descr != null)
-                        return Error("Описание указано более одного раза.");
+                        return Error("Description is provided more than 1 time");
 
                     descr = item;
                 }

@@ -12,8 +12,8 @@
 <h1>Удаление связи</h1>
 
 <p>
-    Вы уверены, что хотите удалить страницу связь <b>@info.Entry.Type.GetEnumDescription()</b>
-    между страницами <b>@info.Entry.Destination.Title</b> и <b>@info.Entry.Source.Title</b>?<br />
+    Are you sure you want to remove the page relation <b>@info.Entry.Type.GetEnumDescription()</b>
+    between pages <b>@info.Entry.Destination.Title</b> и <b>@info.Entry.Source.Title</b>?<br />
 </p>
 
 <form action="@Url.Action("Remove", "Relations", new {area = "Admin"})" method="POST">
@@ -24,13 +24,13 @@
             <div class="form-group">
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" asp-for="RemoveCompletely" id="RemoveCompletely" />
-                    <label class="form-check-label" for="RemoveCompletely">Удалить окончательно (восстановление будет невозможно)</label>
+                    <label class="form-check-label" for="RemoveCompletely">Confirm delete (chnaged are not revertable)</label>
                 </div>
             </div>
         }
     
     <div class="form-group">
-        <button class="btn btn-danger" type="submit">Удалить</button>
-        <a href="@Url.Action("Index", "Relations", new {area = "Admin"})" class="btn btn-secondary">Отмена</a>
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a href="@Url.Action("Index", "Relations", new {area = "Admin"})" class="btn btn-secondary">Calcel</a>
     </div>
 </form>

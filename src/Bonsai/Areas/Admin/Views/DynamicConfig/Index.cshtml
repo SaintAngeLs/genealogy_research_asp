@@ -1,7 +1,7 @@
 ﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model Bonsai.Areas.Admin.ViewModels.DynamicConfig.UpdateDynamicConfigVM
 @{
-    ViewBag.Title = "Настройки";
+    ViewBag.Title = "Settings";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 }
 
@@ -12,55 +12,55 @@
         <form action="@Url.Action("Update")" method="post">
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Название</label>
+                <label class="col-sm-3 col-form-label">Title</label>
                 <div class="col-sm-9">
                     <input asp-for="Title" class="form-control" />
-                    <span class="small text-muted">Показывается в заголовке сайта</span>
+                    <span class="small text-muted">Show in the site title</span>
                     <span asp-validation-for="Title" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3">Доступ</label>
+                <label class="col-sm-3">Access</label>
                 <div class="col-sm-9">
                     <div class="custom-control custom-radio">
                         <input type="radio" asp-for="AllowGuests" value="True" class="custom-control-input" id="AllowGuestsTrue" />
                         <label class="custom-control-label" for="AllowGuestsTrue">
-                            Любой посетитель может читать
+                            Any user may read
                         </label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" asp-for="AllowGuests" value="False" class="custom-control-input" id="AllowGuestsFalse" />
                         <label class="custom-control-label" for="AllowGuestsFalse">
-                            Только зарегистрированный может читать
+                            Only registered user can read
                         </label>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3">Регистрация</label>
+                <label class="col-sm-3">Rigistration</label>
                 <div class="col-sm-9">
                     <div class="custom-control custom-radio">
                         <input type="radio" asp-for="AllowRegistration" value="True" class="custom-control-input" id="AllowRegistrationTrue" />
                         <label class="custom-control-label" for="AllowRegistrationTrue">
-                            Разрешена
+                            Allowed
                         </label>
                     </div>
                     <div class="custom-control custom-radio">
                         <input type="radio" asp-for="AllowRegistration" value="False" class="custom-control-input" id="AllowRegistrationFalse" />
                         <label class="custom-control-label" for="AllowRegistrationFalse">
-                            Запрещена
+                            Forbidden
                         </label>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3">Построение древа</label>
+                <label class="col-sm-3">Tree generation</label>
                 <div class="col-sm-9">
                     <div class="mb-2">
                         <input asp-for="TreeRenderThoroughness" type="range" min="1" max="100" class="form-control"/>
                         <div class="small text-muted">
-                            <div class="pull-left">Быстро и грубо</div>
-                            <div class="pull-right">Долго и тщательно</div>
+                            <div class="pull-left">Fast and rough</div>
+                            <div class="pull-right">Long and consistent</div>
                             <div class="clearfix"></div>
                         </div>
                         <span asp-validation-for="TreeRenderThoroughness" class="text-danger"></span>
@@ -68,7 +68,7 @@
                     <div class="ml-4">
                         <input type="checkbox" asp-for="HideBlackRibbon" class="custom-control-input" id="HideBlackRibbon" />
                         <label class="custom-control-label" for="HideBlackRibbon">
-                            Не показывать черную ленту на карточках умерших
+                            Do not show the black ribbon for the passed away
                         </label>
                     </div>
                 </div>
@@ -77,13 +77,13 @@
             @if (!ViewData.ModelState.IsValid)
             {
                 <div class="alert alert-danger" role="alert">
-                    <strong>Ошибка:</strong> пожалуйста, убедитесь, что вы заполнили все поля корректно и попробуйте снова.
+                    <strong>Error:</strong> please, make sure, the input is correct and try again.
                 </div>
             }
 
             <div class="form-group row">
                 <div class="offset-sm-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                     <a href="@Url.Action("Index")"></a>
                 </div>
             </div>

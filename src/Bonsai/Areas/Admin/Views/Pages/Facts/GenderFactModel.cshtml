@@ -2,17 +2,17 @@
     <div class="fact-wrapper">
         <h6>
             {{def.title}}
-            <button type="button" class="btn btn-outline-secondary btn-sm" v-if="empty()" v-on:click="set({}, 'gender')" title="Указать факт">
+            <button type="button" class="btn btn-outline-secondary btn-sm" v-if="empty()" v-on:click="set({}, 'gender')" title="Provide the fact">
                 <i class="fa fa-plus"></i>
             </button>
         </h6>
         <div v-if="!empty()">
             <div class="form-inline">
                 <select v-model="data[def.key].IsMale" class="form-control form-control-sm fact-sized-input mr-2">
-                    <option v-bind:value="true">Мужской</option>
-                    <option v-bind:value="false">Женский</option>
+                    <option v-bind:value="true">Male</option>
+                    <option v-bind:value="false">Female</option>
                 </select>
-                <button type="button" class="btn btn-outline-danger btn-sm" v-on:click="unset" title="Удалить факт">
+                <button type="button" class="btn btn-outline-danger btn-sm" v-on:click="unset" title="Dlete fact">
                     <i class="fa fa-remove"></i>
                 </button>
             </div>

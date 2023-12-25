@@ -10,7 +10,7 @@
 version: "3.3"
 services:
   traefik:
-    image: traefik
+    image: traefik:latest
     restart: always
     command:
 #      - "--log.level=DEBUG"
@@ -21,7 +21,7 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entryPoints.websecure.address=:443"
       - "--certificatesResolvers.le.acme.storage=/etc/traefik/acme/acme.json"
-      - "--certificatesResolvers.le.acme.email=@@YOUR_EMAIL@@"
+      - "--certificatesResolvers.le.acme.email=voznesenskijandrej5@gmail.com"
       - "--certificatesResolvers.le.acme.httpChallenge=true"
       - "--certificatesResolvers.le.acme.httpChallenge.entryPoint=web"
     ports:
@@ -33,12 +33,15 @@ services:
       - ./traefik/acme:/etc/traefik/acme
 
   bonsai:
-    image: impworks/bonsai:latest
+    #image: impworks/bonsai:latest
+    image: adrianvsaint/relations:latest
     restart: unless-stopped
+    # ports:
+    # - "8080:80"
     volumes:
       - images:/app/wwwroot/media
     environment:
-      - ConnectionStrings__Database=Server=postgres;Port=5432;Database=bonsai;User Id=bonsai;Password=test;Persist Security Info=true
+      - ConnectionStrings__Database=Server=postgres;Port=5432;Database=genealogy;User Id=bonsai;Password=test;Persist Security Info=true
       - Auth__AllowPasswordAuth=true
       - Auth__Google__ClientId=
       - Auth__Google__ClientSecret=

@@ -8,17 +8,17 @@ namespace Bonsai.Data.Models
     /// </summary>
     public enum MediaType
     {
-        [Description("Фото")]
+        [Description("Photo")]
         Photo,
 
-        [Description("Фотосфера")]
+        [Description("PhtoSphere")]
         [Obsolete("Not yet implemented")]
         Photo360,
 
-        [Description("Видео")]
+        [Description("Video")]
         Video,
 
-        [Description("Документ")]
+        [Description("Document")]
         Document
     }
 }

@@ -15,7 +15,7 @@
     else
     {
         <div class="account-text">
-            <a href="@Url.Action("Login", "Auth", new { returnUrl = ViewBag.ReturnUrl })">Войти</a>
+            <a href="@Url.Action("Login", "Auth", new { returnUrl = ViewBag.ReturnUrl })">Log in</a>
         </div>
     }
     
@@ -24,19 +24,19 @@
         {
             <a class="user-popover-link" href="@Url.Action("Description", "Page", new {key = Model.PageKey, area = "Front"})">
                 <i class="fa fa-user-circle-o"></i>
-                <span>Страница</span>
+                <span>Page</span>
             </a>
         }
         @if (Model?.IsAdministrator == true)
         {
             <a class="user-popover-link" href="@Url.Action("Index", "Dashboard", new {area = "Admin"})">
                 <i class="fa fa-cogs"></i>
-                <span>Управление</span>
+                <span>Management</span>
             </a>
         }
         <a class="user-popover-link" href="@Url.Action("Logout", "Auth", new {area = "Front"})">
             <i class="fa fa-sign-out"></i>
-            <span>Выйти</span>
+            <span>Log out</span>
         </a>
     </div>
 </div>

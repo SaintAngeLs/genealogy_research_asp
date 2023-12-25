@@ -148,3 +148,13 @@ Please keep the following facts in mind:
 * It is not possible to change the authorization type for an account once it has been created.
 * Password-based accounts can be locked out if there are too many consecutive failed login attempts.
 * Account password can only be reset by an administrator manually. If you only have one admin account, it is password-based, and the password is lost - there's no way to regain access besides direct database manipulation!
+
+## Docker build, run and push instruction
+
+sudo docker build -t bonsai-app . 
+
+docker run -d -p 8082:80 bonsai-app      
+
+docker tag  bonsai-app  adrianvsaint/relations:latest 
+
+docker push  adrianvsaint/relations:latest 

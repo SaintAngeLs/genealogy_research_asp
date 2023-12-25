@@ -11,31 +11,31 @@
 @using Impworks.Utils.Strings
 
 @{
-    ViewBag.Title = "Список медиа";
+    ViewBag.Title = "Medi list";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var baseUrl = Url.Action("Index", "Media", new { area = "Admin" });
 
     string GetMediaTitleFallback(MediaThumbnailExtendedVM media)
     {
-        var date = media.UploadDate.ToString("dd MMMM yyyy", CultureInfo.GetCultureInfo("ru-RU"));
+        var date = media.UploadDate.ToString("dd MMMM yyyy", CultureInfo.GetCultureInfo("en-US"));
         var part = media.Type switch {
-            MediaType.Photo => "Фото",
-            MediaType.Video => "Видео",
-            MediaType.Document => "Документ",
-            _ => "Прочее"
+            MediaType.Photo => "Images",
+            MediaType.Video => "Videos",
+            MediaType.Document => "Documents",
+            _ => "Other"
         };
-        return $"{part} от {date}";
+        return $"{part} from {date}";
     }
 }
 
-<h1>Список медиа</h1>
+<h1>Media list</h1>
 
 <div class="clearfix">
     <div class="float-left">
-        <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("Upload", "Media", new {area = "Admin"})" title="Загрузить новый медиа-файл">
+        <a class="btn btn-sm btn-outline-secondary" href="@Url.Action("Upload", "Media", new {area = "Admin"})" title="Upload new media file">
             <span class="fa fa-arrow-circle-up"></span>
-            Загрузить
+            Upload
         </a>
     </div>
     <div class="float-right">
@@ -60,8 +60,8 @@
                 request = Model.Request,
                 propName = nameof(MediaListRequestVM.Types)
             })
-            <input type="text" class="form-control form-control-sm mr-sm-2" name="@nameof(MediaListRequestVM.SearchQuery)" value="@Model.Request.SearchQuery" placeholder="Название" />
-            <button class="btn btn-sm btn-outline-secondary" type="submit">Найти</button>
+            <input type="text" class="form-control form-control-sm mr-sm-2" name="@nameof(MediaListRequestVM.SearchQuery)" value="@Model.Request.SearchQuery" placeholder="Title" />
+            <button class="btn btn-sm btn-outline-secondary" type="submit">Search</button>
         </form>
     </div>
 </div>
@@ -72,10 +72,10 @@
         <thead>
             <tr>
                 <th width="1px"></th>
-                <th width="50%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(MediaThumbnailExtendedVM.Title), title = "Название" })</th>
-                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(MediaThumbnailExtendedVM.Date), title = "Снято" })</th>
-                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(MediaThumbnailExtendedVM.UploadDate), title = "Загружено" })</th>
-                <th width="10%">Отметки</th>
+                <th width="50%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(MediaThumbnailExtendedVM.Title), title = "Title" })</th>
+                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(MediaThumbnailExtendedVM.Date), title = "Made up" })</th>
+                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(MediaThumbnailExtendedVM.UploadDate), title = "Uploaded" })</th>
+                <th width="10%">Notes</th>
                 <th width="1px"></th>
             </tr>
         </thead>
@@ -84,12 +84,12 @@
             {
                 <tr class="admin-row">
                     <td class="admin-full-image">
-                        <a href="@Url.Action("Update", "Media", new {area = "Admin", id = m.Id})" title="Редактировать">
+                        <a href="@Url.Action("Update", "Media", new {area = "Admin", id = m.Id})" title="Edit">
                             <div class="image" style="background-image: url(@Url.MediaUrl(m))"></div>
                         </a>
                     </td>
                     <td>
-                        <a href="@Url.Action("Update", "Media", new {area = "Admin", id = m.Id})" title="Редактировать">
+                        <a href="@Url.Action("Update", "Media", new {area = "Admin", id = m.Id})" title="Edit">
                             @(StringHelper.Coalesce(m.Title, GetMediaTitleFallback(m)))
                         </a>
                     </td>
@@ -98,15 +98,15 @@
                     <td>@(m.MediaTagsCount == 0 ? "—" : m.MediaTagsCount.ToString())</td>
                     <td class="admin-row-actions">
                         <a href="@Url.Action("Remove", "Media", new {area = "Admin", id = m.Id})">
-                            <span class="fa fa-remove" title="Удалить"></span>
+                            <span class="fa fa-remove" title="Delete"></span>
                         </a>
 
                         <a href="@Url.Action("Index", "Changesets", new {area = "Admin", entityId = m.Id})">
-                            <span class="fa fa-database" title="История изменений"></span>
+                            <span class="fa fa-database" title="Changes history"></span>
                         </a>
                         
                         <a href="@(Url.Action("Index", "Home", new {area = "Front"}) + "#media-" + m.Key)" target="_blank">
-                            <span class="fa fa-external-link-square" title="Просмотреть"></span>
+                            <span class="fa fa-external-link-square" title="View"></span>
                         </a>
                     </td>
                 </tr>
@@ -119,13 +119,13 @@ else
     if(Model.Request.IsEmpty())
     {
         <div class="alert alert-info">
-            Не добавлено ни одного файла.
+            There is no file added.
         </div>
     }
     else
     {
         <div class="alert alert-info">
-            По запросу не найдено ни одного файла.
+            There is not file found.
         </div>
     }
 }

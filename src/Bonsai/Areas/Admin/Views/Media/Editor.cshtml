@@ -4,13 +4,13 @@
 @using Impworks.Utils.Format
 @model Bonsai.Areas.Admin.ViewModels.Media.MediaEditorVM
 @{
-    ViewBag.Title = "Редактирование медиа";
+    ViewBag.Title = "Media editor";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var data = (MediaEditorDataVM)ViewBag.Data;
 }
 
-<h1>Редактор медиа</h1>
+<h1>Media editor</h1>
 
 <form action="@Url.Action("Update", "Media", new {area = "Admin"})" method="POST" class="media-editor-form">
     <input type="hidden" asp-for="Id" />
@@ -31,7 +31,7 @@
                 </div>
             </div>
             <div class="form-group col-sm-4">
-                <label>Отметки</label>
+                <label>Notes</label>
                 <select id="media-editor-tags-list" asp-items="data.DepictedEntityItems" multiple="multiple"></select>
             </div>
         }
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group col-sm-2">
                 <button type="button" class="btn btn-outline-secondary cmd-add-tag">
-                    <i class="fa fa-plus-circle"></i> Отметить
+                    <i class="fa fa-plus-circle"></i> Cancel
                 </button>
             </div>
         }
@@ -56,31 +56,31 @@
     
     <div class="form-row">
         <div class="form-group col-sm-5">
-            <label asp-for="Title">Заголовок</label>
+            <label asp-for="Title">Title</label>
             <input type="text" asp-for="Title" class="form-control" />
             <span asp-validation-for="Title" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-3">
-            <label asp-for="Date">Дата</label>
-            <input type="text" asp-for="Date" class="form-control datepicker" placeholder="ГГГГ.ММ.ДД" />
+            <label asp-for="Date">Date</label>
+            <input type="text" asp-for="Date" class="form-control datepicker" placeholder="yyyy.mm.dd" />
             <span asp-validation-for="Date" class="text-danger"></span>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-sm-4">
-            <label asp-for="Location">Место</label>
+            <label asp-for="Location">Place</label>
             <select asp-for="Location" asp-items="data.LocationItem"></select>
             <span asp-validation-for="Location" class="text-danger"></span>
         </div>
         <div class="form-group col-sm-4">
-            <label asp-for="Event">Событие</label>
+            <label asp-for="Event">Event</label>
             <select asp-for="Event" asp-items="data.EventItem"></select>
             <span asp-validation-for="Event" class="text-danger"></span>
         </div>
     </div>
     <div class="form-row">
         <div class="form-group col-sm-8">
-            <label asp-for="Description">Описание</label>
+            <label asp-for="Description">Description</label>
             <textarea asp-for="Description" class="form-control md-editor"></textarea>
         </div>
     </div>
@@ -97,7 +97,7 @@
                 }
             </div>
         </div>
-        <a href="@Url.Action("Index", "Media", new {area = "Admin"})" class="btn btn-secondary">Отмена</a>
+        <a href="@Url.Action("Index", "Media", new {area = "Admin"})" class="btn btn-secondary">Cancel</a>
     </div>
 </form>
 
@@ -112,7 +112,7 @@
 <script type="text/template" id="media-tag-popup-template">
     <form class="media-tag-popup-form form-inline">
         <select class="form-control"></select>
-        <button type="button" class="btn btn-danger cmd-remove-tag" title="Удалить отметку">
+        <button type="button" class="btn btn-danger cmd-remove-tag" title="Delete note">
             <i class="fa fa-trash"></i>
         </button>
     </form> 

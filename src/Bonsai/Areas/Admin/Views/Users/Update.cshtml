@@ -2,7 +2,7 @@
 @using Bonsai.Areas.Admin.ViewModels.Users
 @model Bonsai.Areas.Admin.ViewModels.Users.UserEditorVM
 @{
-    ViewBag.Title = Model.IsValidated ? "Редактирование пользователя" : "Валидация пользователя";
+    ViewBag.Title = Model.IsValidated ? "Editing User" : "User Validation";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var data = (UserEditorDataVM) ViewBag.Data;
@@ -17,30 +17,30 @@
             <input type="hidden" asp-for="Id" />
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="LastName">Фамилия</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="LastName">Last Name</label>
                 <div class="col-sm-9">
                     <input asp-for="LastName" class="form-control" />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">Имя</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">First Name</label>
                 <div class="col-sm-9">
                     <input asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Отчество</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Middle Name</label>
                 <div class="col-sm-9">
                     <input asp-for="MiddleName" class="form-control" />
                     <span asp-validation-for="MiddleName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Дата рождения</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Birth Date</label>
                 <div class="col-sm-6">
-                    <input asp-for="Birthday" class="form-control datepicker" placeholder="ГГГГ.ММ.ДД" />
+                    <input asp-for="Birthday" class="form-control datepicker" placeholder="yyyy.mm.dd" />
                     <span asp-validation-for="Birthday" class="text-danger"></span>
                 </div>
             </div>
@@ -55,7 +55,7 @@
             @if(!data.IsSelf)
             {
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Доступ</label>
+                    <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Access</label>
                     <div class="col-sm-9">
                         <select asp-for="Role" asp-items="@data.UserRoleItems" class="form-control"></select>
                         <span asp-validation-for="Role" class="text-danger"></span>
@@ -63,18 +63,18 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Блокировка</label>
+                    <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Block</label>
                     <div class="col-sm-9">
                         <div class="custom-control custom-radio">
                             <input type="radio" asp-for="IsLocked" value="false" class="custom-control-input" id="IsLockedFalse" />
                             <label class="custom-control-label" for="IsLockedFalse">
-                                Активен
+                                Active
                             </label>
                         </div>
                         <div class="custom-control custom-radio">
                             <input type="radio" asp-for="IsLocked" value="true" class="custom-control-input" id="IsLockedTrue" />
                             <label class="custom-control-label" for="IsLockedTrue">
-                                Заблокирован
+                                Blocked
                             </label>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
             }
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Страница</label>
+                <label class="col-sm-3 col-form-label">Page</label>
                 <div class="col-sm-9">
                     <div>
                         <select asp-for="PersonalPageId" asp-items="@data.PageItems"></select>
@@ -90,11 +90,11 @@
                     </div>
                     @if (data.CanCreatePersonalPage)
                     {
-                        <div>или</div>
+                        <div>or</div>
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" asp-for="CreatePersonalPage" class="custom-control-input" id="CreatePersonalPage" />
                             <label class="custom-control-label" for="CreatePersonalPage">
-                                Создать новую
+                                Create new page
                             </label>
                         </div>
                     }
@@ -104,19 +104,19 @@
             @if(!ViewData.ModelState.IsValid)
             {
                 <div class="alert alert-danger" role="alert">
-                    <strong>Ошибка:</strong> пожалуйста, убедитесь, что вы заполнили все поля корректно и попробуйте снова.
+                    <strong>Error:</strong> please make sure you have filled all fields correctly and try again.
                 </div>
             }
 
             <div class="form-group row" style="margin-bottom: 140px">
                 <div class="offset-sm-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
-                    <a class="btn btn-secondary" href="@Url.Action("Index")">Отмена</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a>
                 </div>
                 @if (!data.IsSelf)
                 {
                     <div class="float-right">
-                        <a class="btn btn-danger" href="@Url.Action("Remove", "Users", new {id = Model.Id})">Удалить</a>
+                        <a class="btn btn-danger" href="@Url.Action("Remove", "Users", new {id = Model.Id})">Delete</a>
                     </div>
                 }
             </div>

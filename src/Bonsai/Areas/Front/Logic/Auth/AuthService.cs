@@ -201,19 +201,19 @@ namespace Bonsai.Areas.Front.Logic.Auth
             var val = new Validator();
 
             if (FuzzyDate.TryParse(vm.Birthday) == null)
-                val.Add(nameof(vm.Birthday), "Дата рождения указана неверно.");
+                val.Add(nameof(vm.Birthday), "Birth date provided is not correct.");
 
             var emailExists = await _db.Users.AnyAsync(x => x.Email == vm.Email);
             if (emailExists)
-                val.Add(nameof(vm.Email), "Адрес электронной почты уже зарегистрирован.");
+                val.Add(nameof(vm.Email), "Email is already in use.");
 
             if (usePasswordAuth)
             {
                 if (vm.Password == null || vm.Password.Length < 6)
-                    val.Add(nameof(vm.Password), "Пароль должен содержать как минимум 6 символов.");
+                    val.Add(nameof(vm.Password), "Password should contatin >= 6 literals");
 
                 if (vm.Password != vm.PasswordCopy)
-                    val.Add(nameof(vm.PasswordCopy), "Пароли не совпадают.");
+                    val.Add(nameof(vm.PasswordCopy), "Password does not match");
             }
 
             val.ThrowIfInvalid();

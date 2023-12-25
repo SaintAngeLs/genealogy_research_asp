@@ -56,17 +56,17 @@ namespace Bonsai.Areas.Admin.Logic.Changesets
                                        .Where(x => pageIds.Contains(x.Id))
                                        .ToDictionaryAsync(x => x.Id, x => x.Title);
 
-            Add(nameof(RelationEditorVM.DestinationId), "Основная страница", namesLookup.TryGetValue(data.DestinationId ?? Guid.Empty));
-            Add(nameof(RelationEditorVM.Type), "Тип связи", string.IsNullOrEmpty(json) ? null : data.Type.GetEnumDescription());
+            Add(nameof(RelationEditorVM.DestinationId), "Main page", namesLookup.TryGetValue(data.DestinationId ?? Guid.Empty));
+            Add(nameof(RelationEditorVM.Type), "Relation type", string.IsNullOrEmpty(json) ? null : data.Type.GetEnumDescription());
 
             if (data.SourceIds.Length == 0)
             {
-                Add(nameof(RelationEditorVM.SourceIds), "Связанная страница", null);
+                Add(nameof(RelationEditorVM.SourceIds), "Related page", null);
             }
             else if (data.SourceIds.Length == 1)
             {
                 var name = namesLookup.TryGetValue(data.SourceIds[0]);
-                Add(nameof(RelationEditorVM.SourceIds), "Связанная страница", name);
+                Add(nameof(RelationEditorVM.SourceIds), "Related page", name);
             }
             else
             {
@@ -74,12 +74,12 @@ namespace Bonsai.Areas.Admin.Logic.Changesets
                                     .Select(x => namesLookup.TryGetValue(x))
                                     .Where(x => !string.IsNullOrEmpty(x));
 
-                Add(nameof(RelationEditorVM.SourceIds), "Связанные страницы", ViewHelper.RenderBulletList(_html, pageNames));
+                Add(nameof(RelationEditorVM.SourceIds), "Related pages", ViewHelper.RenderBulletList(_html, pageNames));
             }
 
-            Add(nameof(RelationEditorVM.EventId), "Событие", namesLookup.TryGetValue(data.EventId ?? Guid.Empty));
-            Add(nameof(RelationEditorVM.DurationStart), "Начало", FuzzyDate.TryParse(data.DurationStart)?.ReadableDate);
-            Add(nameof(RelationEditorVM.DurationEnd), "Конец", FuzzyDate.TryParse(data.DurationEnd)?.ReadableDate);
+            Add(nameof(RelationEditorVM.EventId), "Event", namesLookup.TryGetValue(data.EventId ?? Guid.Empty));
+            Add(nameof(RelationEditorVM.DurationStart), "Start", FuzzyDate.TryParse(data.DurationStart)?.ReadableDate);
+            Add(nameof(RelationEditorVM.DurationEnd), "End", FuzzyDate.TryParse(data.DurationEnd)?.ReadableDate);
             
             return result;
 

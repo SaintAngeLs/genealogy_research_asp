@@ -25,19 +25,19 @@ namespace Bonsai.Areas.Front.Logic.Relations
 
         private readonly AppDbContext _db;
 
-        #region Relation definitions
+         #region Relation definitions
 
         /// <summary>
         /// Relations for parents/siblings group.
         /// </summary>
         public static RelationDefinition[] ParentRelations =
         {
-            new RelationDefinition("Parent:m", "Отец"),
-            new RelationDefinition("Parent:f", "Мать"),
-            new RelationDefinition("Parent Child:m", "Брат", "Братья"),
-            new RelationDefinition("Parent Child:f", "Сестра", "Сестры"),
-            new RelationDefinition("Parent Parent:m", "Дедушка", "Дедушки"),
-            new RelationDefinition("Parent Parent:f", "Бабушка", "Бабушки")
+            new RelationDefinition("Parent:m", "Father"),
+            new RelationDefinition("Parent:f", "Mother"),
+            new RelationDefinition("Parent Child:m", "Brother", "Brothers"),
+            new RelationDefinition("Parent Child:f", "Sister", "Sisters"),
+            new RelationDefinition("Parent Parent:m", "Grandfather", "Grandfathers"),
+            new RelationDefinition("Parent Parent:f", "Grandmother", "Grandmothers")
         };
 
         /// <summary>
@@ -45,17 +45,17 @@ namespace Bonsai.Areas.Front.Logic.Relations
         /// </summary>
         public static RelationDefinition[] SpouseDefinitions =
         {
-            new RelationDefinition("!Spouse:m", "Муж", null, RelationDurationDisplayMode.RelationRange), 
-            new RelationDefinition("!Spouse:f", "Жена", null, RelationDurationDisplayMode.RelationRange),
-            new RelationDefinition("!Spouse Child+Child", "Сын|Дочь|Ребенок", "Дети", RelationDurationDisplayMode.Birth),
-            new RelationDefinition("!Spouse:m Parent:m", "Свекр"),
-            new RelationDefinition("!Spouse:m Parent:f", "Свекровь"),
-            new RelationDefinition("!Spouse:f Parent:m", "Тесть"),
-            new RelationDefinition("!Spouse:f Parent:f", "Теща"),
-            new RelationDefinition("!Spouse:m Parent Child:m", "Деверь", "Девери"),
-            new RelationDefinition("!Spouse:m Parent Child:f", "Золовка", "Золовки"),
-            new RelationDefinition("!Spouse:f Parent Child:m", "Шурин", "Шурины"),
-            new RelationDefinition("!Spouse:f Parent Child:f", "Свояченица", "Свояченицы")
+            new RelationDefinition("!Spouse:m", "Husband", null, RelationDurationDisplayMode.RelationRange), 
+            new RelationDefinition("!Spouse:f", "Wife", null, RelationDurationDisplayMode.RelationRange),
+            new RelationDefinition("!Spouse Child+Child", "Son|Daughter|Child", "Children", RelationDurationDisplayMode.Birth),
+            new RelationDefinition("!Spouse:m Parent:m", "Father-in-law"),
+            new RelationDefinition("!Spouse:m Parent:f", "Mother-in-law"),
+            new RelationDefinition("!Spouse:f Parent:m", "Father-in-law"),
+            new RelationDefinition("!Spouse:f Parent:f", "Mother-in-law"),
+            new RelationDefinition("!Spouse:m Parent Child:m", "Brother-in-law", "Brothers-in-law"),
+            new RelationDefinition("!Spouse:m Parent Child:f", "Sister-in-law", "Sisters-in-law"),
+            new RelationDefinition("!Spouse:f Parent Child:m", "Brother-in-law", "Brothers-in-law"),
+            new RelationDefinition("!Spouse:f Parent Child:f", "Sister-in-law", "Sisters-in-law")
         };
 
         /// <summary>
@@ -63,11 +63,11 @@ namespace Bonsai.Areas.Front.Logic.Relations
         /// </summary>
         public static RelationDefinition[] OtherRelativeRelations =
         {
-            new RelationDefinition("Child-Spouse Child", "Сын|Дочь|Ребенок", "Дети", RelationDurationDisplayMode.Birth),
-            new RelationDefinition("Child Child", "Внук|Внучка|Внук", "Внуки", RelationDurationDisplayMode.Birth),
-            new RelationDefinition("Child:f Spouse:m", "Зять", "Зяти"),
-            new RelationDefinition("Child:m Spouse:f", "Невестка", "Невестки"),
-            new RelationDefinition("Pet", "Питомец", "Питомцы"),
+            new RelationDefinition("Child-Spouse Child", "Son|Daughter|Child", "Children", RelationDurationDisplayMode.Birth),
+            new RelationDefinition("Child Child", "Grandson|Granddaughter|Grandchild", "Grandchildren", RelationDurationDisplayMode.Birth),
+            new RelationDefinition("Child:f Spouse:m", "Son-in-law", "Sons-in-law"),
+            new RelationDefinition("Child:m Spouse:f", "Daughter-in-law", "Daughters-in-law"),
+            new RelationDefinition("Pet", "Pet", "Pets"),
         };
 
         /// <summary>
@@ -75,11 +75,11 @@ namespace Bonsai.Areas.Front.Logic.Relations
         /// </summary>
         private static RelationDefinition[] NonRelativeRelations =
         {
-            new RelationDefinition("Friend", "Друг", "Друзья"),
-            new RelationDefinition("Colleague", "Коллега", "Коллеги"),
-            new RelationDefinition("Owner", "Владелец", "Владельцы", RelationDurationDisplayMode.RelationRange),
-            new RelationDefinition("EventVisitor", "Участник", "Участники"),
-            new RelationDefinition("LocationInhabitant", "Житель", "Жители"),
+            new RelationDefinition("Friend", "Friend", "Friends"),
+            new RelationDefinition("Colleague", "Colleague", "Colleagues"),
+            new RelationDefinition("Owner", "Owner", "Owners", RelationDurationDisplayMode.RelationRange),
+            new RelationDefinition("EventVisitor", "Participant", "Participants"),
+            new RelationDefinition("LocationInhabitant", "Resident", "Residents"),
         };
 
         /// <summary>
@@ -87,8 +87,8 @@ namespace Bonsai.Areas.Front.Logic.Relations
         /// </summary>
         private static RelationDefinition[] NonHumanRelations =
         {
-            new RelationDefinition("Location", "Место", "Места"),
-            new RelationDefinition("Event", "Событие", "События"),
+            new RelationDefinition("Location", "Location", "Locations"),
+            new RelationDefinition("Event", "Event", "Events"),
         };
 
         #endregion
@@ -106,7 +106,7 @@ namespace Bonsai.Areas.Front.Logic.Relations
             {
                 new RelationCategoryVM
                 {
-                    Title = "Родственники",
+                    Title = "Relatives",
                     IsMain = true,
                     Groups = GetGroups(ctx, pageId, ParentRelations)
                         .Concat(GetSpouseGroups(ctx, pageId))
@@ -115,12 +115,12 @@ namespace Bonsai.Areas.Front.Logic.Relations
                 },
                 new RelationCategoryVM
                 {
-                    Title = "Люди",
+                    Title = "People",
                     Groups = GetGroups(ctx, pageId, NonRelativeRelations).ToList(),
                 },
                 new RelationCategoryVM
                 {
-                    Title = "Страницы",
+                    Title = "Pages",
                     Groups = GetGroups(ctx, pageId, NonHumanRelations).ToList(),
                 }
             };

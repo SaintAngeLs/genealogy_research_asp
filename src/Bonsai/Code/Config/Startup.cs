@@ -107,12 +107,11 @@ namespace Bonsai.Code.Config
         /// </summary>
         private RequestLocalizationOptions GetRequestLocalizationOptions()
         {
-            var culture = CultureInfo.GetCultureInfo("ru-RU");
             return new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture(culture),
-                SupportedCultures = new[] {culture},
-                SupportedUICultures = new[] {culture}
+                DefaultRequestCulture = new RequestCulture(CultureInfo.InvariantCulture),
+                SupportedCultures = new[] {CultureInfo.InvariantCulture},
+                SupportedUICultures = new[] {CultureInfo.InvariantCulture}
             };
         }
     }
