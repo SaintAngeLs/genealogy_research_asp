@@ -2,11 +2,7 @@
 @using Bonsai.Areas.Admin.ViewModels.Users
 @model Bonsai.Areas.Admin.ViewModels.Users.UserEditorVM
 @{
-<<<<<<< HEAD
-    ViewBag.Title = Model.IsValidated ? "Edit user" : "Check user";
-=======
     ViewBag.Title = Model.IsValidated ? "Editing User" : "User Validation";
->>>>>>> dev
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var data = (UserEditorDataVM) ViewBag.Data;
@@ -28,37 +24,23 @@
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">Name</label>
-=======
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">First Name</label>
->>>>>>> dev
                 <div class="col-sm-9">
                     <input asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Father Name</label>
-=======
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Middle Name</label>
->>>>>>> dev
                 <div class="col-sm-9">
                     <input asp-for="MiddleName" class="form-control" />
                     <span asp-validation-for="MiddleName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Birth Date</label>
                 <div class="col-sm-6">
                     <input asp-for="Birthday" class="form-control datepicker" placeholder="yyyy.mm.dd" />
-=======
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Date of Birth</label>
-                <div class="col-sm-6">
-                    <input asp-for="Birthday" class="form-control datepicker" placeholder="YYYY.MM.DD" />
->>>>>>> dev
                     <span asp-validation-for="Birthday" class="text-danger"></span>
                 </div>
             </div>
@@ -81,11 +63,7 @@
                 </div>
 
                 <div class="form-group row">
-<<<<<<< HEAD
                     <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Block</label>
-=======
-                    <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Lock</label>
->>>>>>> dev
                     <div class="col-sm-9">
                         <div class="custom-control custom-radio">
                             <input type="radio" asp-for="IsLocked" value="false" class="custom-control-input" id="IsLockedFalse" />
@@ -116,11 +94,7 @@
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" asp-for="CreatePersonalPage" class="custom-control-input" id="CreatePersonalPage" />
                             <label class="custom-control-label" for="CreatePersonalPage">
-<<<<<<< HEAD
                                 Create new page
-=======
-                                Create new
->>>>>>> dev
                             </label>
                         </div>
                     }
@@ -130,11 +104,7 @@
             @if(!ViewData.ModelState.IsValid)
             {
                 <div class="alert alert-danger" role="alert">
-<<<<<<< HEAD
-                    <strong>Error:</strong> please, make sure, the input is correct and try again.
-=======
                     <strong>Error:</strong> please make sure you have filled all fields correctly and try again.
->>>>>>> dev
                 </div>
             }
 

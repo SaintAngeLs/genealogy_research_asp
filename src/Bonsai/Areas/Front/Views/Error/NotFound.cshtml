@@ -1,7 +1,7 @@
 ﻿@using Bonsai.Areas.Front.ViewModels.Auth
 @{
     Layout = "~/Areas/Front/Views/Layout.cshtml";
-    ViewBag.Title = "Страница не найдена";
+    ViewBag.Title = "Page is not found";
 
     var user = (UserVM) ViewBag.User;
 }
@@ -10,18 +10,18 @@
     <h1>Ошибка 404</h1>
 
     <p>
-        Увы и ах! Такая страница не существует. <br />
-        Возможно, она еще не создана, или вы перешли по ссылке с ошибкой.
+        Hmmm... It seems this page does not exists <br />
+        Maybe it is not created, or the link contains some error.
     </p>
     <p></p>
     <p></p>
     <p>
-        <a href="@Url.Action("Index", "Home", new { area = "Front" })" class="btn btn-outline-primary">На главную</a>
+        <a href="@Url.Action("Index", "Home", new { area = "Front" })" class="btn btn-outline-primary">Home</a>
         @if(user?.IsAdministrator == true)
         {
             <a href="@Url.Action("Index", "Pages", new {area = "Admin"})" class="btn btn-outline-secondary">
                 <i class="fa fa-plus-circle"></i>
-                Добавить страницу
+                Add page
             </a>
         }
     </p>

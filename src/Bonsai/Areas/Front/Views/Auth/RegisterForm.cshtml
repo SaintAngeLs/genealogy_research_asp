@@ -19,24 +19,15 @@
     }
     else
     {
-<<<<<<< HEAD
-        <p>Make sure that you have entered up-to-date information - in Russian and without errors.</p>
-        <p>Your account will be reviewed by an administrator, after which you will be able to log in and use the system.</p>
-=======
         <p>Make sure you have entered up-to-date information - in Russian and without errors.</p>
         <p>Your account will be verified by an administrator, after which you can log in and use the system.</p>
->>>>>>> dev
     }
 
     <div class="row">
         <div class="col-md-7 col-sm-12">
             <form asp-action="Register" method="post" style="margin-top: 32px">
                 <div class="form-group row">
-<<<<<<< HEAD
-                    <label class="col-sm-3 col-form-label form-label-required">Surname</label>
-=======
                     <label class="col-sm-3 col-form-label form-label-required">Last Name</label>
->>>>>>> dev
                     <div class="col-sm-9">
                         <input asp-for="LastName" class="form-control" />
                         <span asp-validation-for="LastName" class="text-danger"></span>
@@ -97,11 +88,7 @@
                         <div class="col-sm-9">
                             <div class="form-check">
                                 <input asp-for="CreatePersonalPage" class="form-check-input" />
-<<<<<<< HEAD
-                                <label asp-for="CreatePersonalPage" class="form-check-label">Create personal page</label>
-=======
                                 <label asp-for="CreatePersonalPage" class="form-check-label">Create a personal page</label>
->>>>>>> dev
                                 <span asp-validation-for="CreatePersonalPage" class="text-danger"></span>
                             </div>
                         </div>
@@ -111,11 +98,7 @@
                 @if (!ViewData.ModelState.IsValid)
                 {
                     <div class="alert alert-danger" role="alert">
-<<<<<<< HEAD
-                        <strong>Error:</strong> please, make sure the input is correct and try again.
-=======
                         <strong>Error:</strong> please make sure you have filled all fields correctly and try again.
->>>>>>> dev
                     </div>
                 }
 

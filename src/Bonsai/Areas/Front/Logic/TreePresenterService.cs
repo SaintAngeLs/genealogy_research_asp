@@ -43,7 +43,7 @@ namespace Bonsai.Areas.Front.Logic
             var page = await _db.Pages
                                 .AsNoTracking()
                                 .Include(x => x.TreeLayout)
-                                .GetAsync(x => x.Aliases.Any(y => y.Key == keyLower) && x.IsDeleted == false, "Страница не найдена");
+                                .GetAsync(x => x.Aliases.Any(y => y.Key == keyLower) && x.IsDeleted == false, "Page is not found");
 
             var result = new TreeVM {RootId = page.Id};
             var json = page?.TreeLayout?.LayoutJson;

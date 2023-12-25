@@ -14,7 +14,7 @@
             if (maxSize) {
                 var size = data.originalFiles[0].size;
                 if (size > maxSize) {
-                    toastr.error('Файл слишком большой!');
+                    toastr.error('File is too large!');
                     return;
                 }
             }
@@ -49,12 +49,12 @@
 
     setupPagePicker($evt, {
         create: true,
-        placeholder: 'Страница или название',
+        placeholder: 'Page or name',
         types: [2]
     });
     setupPagePicker($loc, {
         create: true,
-        placeholder: 'Страница или название',
+        placeholder: 'Page or name',
         types: [3]
     });
 
@@ -64,7 +64,7 @@
 
         $ctx.find('.error')
             .show() 
-            .prop('title', msg || 'Неизвестная ошибка');
+            .prop('title', msg || 'Unknown error');
     }
 
     function displaySuccess($ctx, info) {

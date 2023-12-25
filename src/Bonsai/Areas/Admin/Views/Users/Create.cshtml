@@ -13,11 +13,6 @@
 <h1>@ViewBag.Title</h1>
 
 <div class="alert alert-info" notification-id="@NotificationsService.NOTE_PASSWORD_AUTH">
-<<<<<<< HEAD
-    <p><strong>You are creating profile with the password authorization.</strong></p>
-    <p>
-        It will not be possible the change the password with no administrator's help.
-=======
     <p><strong>You are creating a profile with password authentication.</strong></p>
     <p>
         This type of authentication is less secure and convenient, but does not require a social network account.
@@ -25,7 +20,6 @@
     </p>
     <p>
         If a user forgets their password, they will not be able to recover it themselves - only an administrator can do that.
->>>>>>> dev
     </p>
 </div>
 
@@ -40,37 +34,23 @@
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">Name</label>
-=======
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">First Name</label>
->>>>>>> dev
                 <div class="col-sm-9">
                     <input asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Father Name</label>
-=======
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Middle Name</label>
->>>>>>> dev
                 <div class="col-sm-9">
                     <input asp-for="MiddleName" class="form-control" />
                     <span asp-validation-for="MiddleName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Birth date</label>
-                <div class="col-sm-6">
-                    <input asp-for="Birthday" class="form-control datepicker" placeholder="yyyy.mm.dd" />
-=======
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Date of Birth</label>
                 <div class="col-sm-6">
                     <input asp-for="Birthday" class="form-control datepicker" placeholder="YYYY.MM.DD" />
->>>>>>> dev
                     <span asp-validation-for="Birthday" class="text-danger"></span>
                 </div>
             </div>
@@ -78,11 +58,7 @@
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="Email">E-mail</label>
                 <div class="col-sm-9">
                     <input asp-for="Email" class="form-control" />
-<<<<<<< HEAD
                     <div class="small text-muted">E-mail will be used for the login</div>
-=======
-                    <div class="small text-muted">Will be used as a login</div>
->>>>>>> dev
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
@@ -91,20 +67,12 @@
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="Password">Password</label>
                 <div class="col-sm-9">
                     <input type="password" asp-for="Password" class="form-control" />
-<<<<<<< HEAD
-                    <div class="small text-muted">Minimum 6 literals</div>
-=======
                     <div class="small text-muted">Minimum 6 characters</div>
->>>>>>> dev
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-<<<<<<< HEAD
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="PasswordCopy">Confirm password</label>
-=======
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="PasswordCopy">Repeat Password</label>
->>>>>>> dev
                 <div class="col-sm-9">
                     <input type="password" asp-for="PasswordCopy" class="form-control" />
                     <span asp-validation-for="PasswordCopy" class="text-danger"></span>
@@ -130,11 +98,7 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" asp-for="CreatePersonalPage" class="custom-control-input" id="CreatePersonalPage" />
                         <label class="custom-control-label" for="CreatePersonalPage">
-<<<<<<< HEAD
-                            Create new page
-=======
                             Create new
->>>>>>> dev
                         </label>
                     </div>
                 </div>
@@ -143,11 +107,7 @@
             @if (!ViewData.ModelState.IsValid)
             {
                 <div class="alert alert-danger" role="alert">
-<<<<<<< HEAD
-                    <strong>Error:</strong> please, make sure, the input is correct and try again.
-=======
                     <strong>Error:</strong> please make sure you have filled all fields correctly and try again.
->>>>>>> dev
                 </div>
             }
 
