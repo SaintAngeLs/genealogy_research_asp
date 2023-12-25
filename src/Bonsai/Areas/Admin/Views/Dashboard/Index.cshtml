@@ -13,7 +13,7 @@
         <div class="card">
             <a class="card-body" href="@Url.Action("Index", "Pages", new {area = "Admin"})">
                 <h2 class="card-title text-center">@Model.PagesCount</h2>
-                <p class="card-text text-center">@Model.PagesCount.DisplayNumeric("page", "page's", "pages", false)</p>
+                <p class="card-text text-center">@Model.PagesCount.DisplayNumeric("page", "pages", "pages", false)</p>
             </a>
             @if (Model.PagesToImproveCount > 0)
             {

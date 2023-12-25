@@ -9,6 +9,8 @@ body, html {
 }
 
 .main-container {
+    position:relative; 
+    z-index:1;
     margin: auto;
     min-height: 100%;
     overflow: hidden;
@@ -38,7 +40,7 @@ body, html {
                 color: $gray-900;
 
                 .fa-arrow-up,
-                .fa-arrow-down, {
+                .fa-arrow-down {
                     color: $gray-600;
                 }
             }

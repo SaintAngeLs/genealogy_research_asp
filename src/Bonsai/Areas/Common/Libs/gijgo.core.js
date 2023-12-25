@@ -245,7 +245,9 @@ gj.documentManager = {
     }
 };
 
-/**  */gj.core = {
+/**
+  */
+gj.core = {
     messages: {
         'en-us': {
             monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
@@ -260,7 +262,9 @@ gj.documentManager = {
         }
     },
 
-    /**      */    parseDate: function (value, format, locale) {
+    /** 
+     */
+    parseDate: function (value, format, locale) {
         var i, year = 0, month = 0, date = 1, hour = 0, minute = 0, dateParts, formatParts, result;
 
         if (value && typeof value === 'string') {
@@ -302,7 +306,9 @@ gj.documentManager = {
         return result;
     },
 
-    /**      */    formatDate: function (date, format, locale) {
+    /** 
+     */
+    formatDate: function (date, format, locale) {
         var result = '', separator, tmp,
             formatParts = format.split(/[\s,-\.//\:]+/),
             separators = format.split(/s+|M+|H+|h+|t+|T+|d+|m+|y+/);
@@ -712,6 +718,17 @@ gj.core.messages['ru-ru'] = {
     pm: 'PM',
     ok: 'ОК',
     cancel: 'Отмена'
+};
+gj.core.messages['en-en'] = {
+    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    monthShortNames: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+    weekDaysMin: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+    weekDaysShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    weekDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    am: 'AM',
+    pm: 'PM',
+    ok: 'OK',
+    cancel: 'Cancel'
 };
 gj.core.messages['es-es'] = {
     monthNames: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'setiembre', 'octubre', 'noviembre', 'diciembre'],

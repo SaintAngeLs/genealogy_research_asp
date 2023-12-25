@@ -10,25 +10,25 @@ namespace Bonsai.Data.Models
         /// <summary>
         /// Newly registered user.
         /// </summary>
-        [Description("Новый")]
+        [Description("New")]
         Unvalidated,
 
         /// <summary>
         /// Basic user.
         /// </summary>
-        [Description("Пользователь")]
+        [Description("User")]
         User,
 
         /// <summary>
         /// Page editor.
         /// </summary>
-        [Description("Редактор")]
+        [Description("Editor")]
         Editor,
 
         /// <summary>
         /// Almighty administator
         /// </summary>
-        [Description("Администратор")]
+        [Description("Admin")]
         Admin
     }
 }

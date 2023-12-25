@@ -66,7 +66,7 @@
                         border: $border-width solid $gray-300;
 
                         &.calendar-day-selected {
-                            background: linear-gradient(45deg, #94c11e, #36a23d);
+                            background: linear-gradient(45deg, #0e68b6, #0e4cb6);
 
                             .calendar-day-number {
                                 color: #fff;
@@ -135,7 +135,7 @@
                                 margin: 2px;
                                 background: #ccc;
                                 border-radius: 100%;
-                                background: linear-gradient(45deg, #94c11e, #36a23d);
+                                background: linear-gradient(45deg, #0e68b6, #0e4cb6);
                             }
                         }
                     }
