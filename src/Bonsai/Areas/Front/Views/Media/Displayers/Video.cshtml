@@ -6,16 +6,16 @@
     <div class="video-wrapper">
         <video class="media-video" controls poster="@Url.Content(Model.PreviewPath)" preload="auto">
             <source src="@Url.Content(Model.OriginalPath)" type="video/mp4" />
-            <div class="alert alert-warning">Ваш браузер не поддерживает просмотр видео.</div>
+            <div class="alert alert-warning">The video is not supporder in your browser.</div>
         </video>
     </div>
 }
 else
 {
     <div class="photo-wrapper">
-        <img src="@Url.MediaUrl(Model)" class="media-photo" alt="Видео обрабатывается..." />
+        <img src="@Url.MediaUrl(Model)" class="media-photo" alt="Processing the video..." />
     </div>
     <div class="alert alert-info">
-        Видео будет доступно после обработки. Попробуйте перезагрузить страницу.
+        Video will be available after the processing succeded. Please reload the page.browser
     </div>
 }

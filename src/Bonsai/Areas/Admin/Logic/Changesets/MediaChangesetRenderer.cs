@@ -61,12 +61,12 @@ namespace Bonsai.Areas.Admin.Logic.Changesets
 
             var deps = depicted.Select(x => string.Format("{0} ({1})", namesLookup[x.PageId ?? Guid.Empty] ?? x.ObjectTitle, x.Coordinates));
 
-            Add(nameof(MediaEditorVM.Title), "Название", data.Title);
-            Add(nameof(MediaEditorVM.Date), "Дата", data.Date != null ? FuzzyDate.Parse(data.Date).ReadableDate : null);
-            Add(nameof(MediaEditorVM.Description), "Описание", data.Description);
-            Add(nameof(MediaEditorVM.Location), "Место", namesLookup.TryGetValue(locId) ?? data.Location);
-            Add(nameof(MediaEditorVM.Event), "Событие", namesLookup.TryGetValue(eventId) ?? data.Event);
-            Add(nameof(MediaEditorVM.DepictedEntities), "Отметки", depicted.Length == 0 ? null : ViewHelper.RenderBulletList(_html, deps));
+            Add(nameof(MediaEditorVM.Title), "Title", data.Title);
+            Add(nameof(MediaEditorVM.Date), "Date", data.Date != null ? FuzzyDate.Parse(data.Date).ReadableDate : null);
+            Add(nameof(MediaEditorVM.Description), "Description", data.Description);
+            Add(nameof(MediaEditorVM.Location), "Place", namesLookup.TryGetValue(locId) ?? data.Location);
+            Add(nameof(MediaEditorVM.Event), "Event", namesLookup.TryGetValue(eventId) ?? data.Event);
+            Add(nameof(MediaEditorVM.DepictedEntities), "Notes", depicted.Length == 0 ? null : ViewHelper.RenderBulletList(_html, deps));
 
             return result;
 

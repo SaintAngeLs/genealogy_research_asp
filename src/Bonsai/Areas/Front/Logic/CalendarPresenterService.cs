@@ -87,10 +87,10 @@ namespace Bonsai.Areas.Front.Logic
                     if (showBirth)
                     {
                         var title = (year == birth.Year && !birth.IsDecade)
-                            ? "Дата рождения"
+                            ? "Birth date"
                             : (birth.Year == null || birth.IsDecade)
-                                ? "День рождения"
-                                : $"День рождения ({year - birth.Year.Value})";
+                                ? "Birth date"
+                                : $"Birth date({year - birth.Year.Value})";
 
                         yield return new CalendarEventVM
                         {
@@ -110,10 +110,10 @@ namespace Bonsai.Areas.Front.Logic
                     if (showDeath)
                     {
                         var title = (year == death.Year && !death.IsDecade)
-                            ? "Дата смерти"
+                            ? "Death date"
                             : (death.Year == null || death.IsDecade)
-                                ? "Годовщина смерти"
-                                : (year - death.Year.Value) + "-ая годовщина смерти";
+                                ? "Death anniversary"
+                                : (year - death.Year.Value) + "-th death anniversary";
 
                         yield return new CalendarEventVM
                         {
@@ -174,17 +174,17 @@ namespace Bonsai.Areas.Front.Logic
             CalendarEventVM GetWeddingEvent(RelationContext.RelationExcerpt rel, FuzzyDate start)
             {
                 var title = (year == start.Year && !start.IsDecade)
-                    ? "День свадьбы"
+                    ? "Wedding date"
                     : (start.Year == null || start.IsDecade)
-                        ? "Годовщина"
-                        : (year - start.Year.Value) + "-ая годовщина";
+                        ? "Anniversary"
+                        : (year - start.Year.Value) + "-th anniversary";
 
                 return new CalendarEventVM
                 {
                     Title = title,
                     Type = CalendarEventType.Wedding,
                     RelatedPage = rel.EventId == null
-                        ? new PageTitleExtendedVM { Title = "Свадьба" }
+                        ? new PageTitleExtendedVM { Title = "Wedding" }
                         : Map(context.Pages[rel.EventId.Value]),
                 };
             }
@@ -196,9 +196,9 @@ namespace Bonsai.Areas.Front.Logic
 
                 return new CalendarEventVM
                 {
-                    Title = "Появление питомца",
+                    Title = "Pet addition",
                     Type = CalendarEventType.PetAdoption,
-                    RelatedPage = new PageTitleExtendedVM { Title = "Событие" }
+                    RelatedPage = new PageTitleExtendedVM { Title = "Event" }
                 };
             }
 
@@ -214,14 +214,14 @@ namespace Bonsai.Areas.Front.Logic
                 ];
 
                 var title = child.Gender == false
-                    ? "Удочерение"
-                    : "Усыновление";
+                    ? "Adoptinng"
+                    : "Adoptinng";
 
                 return new CalendarEventVM
                 {
                     Title = title,
                     Type = CalendarEventType.ChildAdoption,
-                    RelatedPage = new PageTitleExtendedVM { Title = "Событие" }
+                    RelatedPage = new PageTitleExtendedVM { Title = "Event" }
                 };
             }
         }

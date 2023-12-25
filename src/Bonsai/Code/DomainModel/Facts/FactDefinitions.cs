@@ -18,49 +18,49 @@ namespace Bonsai.Code.DomainModel.Facts
                 {
                     new FactDefinitionGroup(
                         "Main",
-                        "Основное",
+                        "Main",
                         true,
-                        new FactDefinition<HumanNameFactModel>("Name", "Имя", "Имя|Имена")
+                        new FactDefinition<HumanNameFactModel>("Name", "Name", "Name|Names")
                     ),
                     new FactDefinitionGroup(
                         "Birth",
-                        "Рождение",
+                        "Birth",
                         true,
-                        new FactDefinition<BirthDateFactModel>("Date", "Дата рождения", "Дата"),
-                        new FactDefinition<StringFactModel>("Place", "Место рождения", "Место")
+                        new FactDefinition<BirthDateFactModel>("Date", "Date of Birth", "Date"),
+                        new FactDefinition<StringFactModel>("Place", "Place of Birth", "Place")
                     ),
                     new FactDefinitionGroup(
                         "Death",
-                        "Смерть",
+                        "Death",
                         true,
-                        new FactDefinition<DeathDateFactModel>("Date", "Дата смерти", "Дата"),
-                        new FactDefinition<StringFactModel>("Place", "Место смерти", "Место"),
-                        new FactDefinition<StringFactModel>("Cause", "Причина смерти", "Причина"),
-                        new FactDefinition<StringFactModel>("Burial", "Место захоронения")
+                        new FactDefinition<DeathDateFactModel>("Date", "Date of Death", "Date"),
+                        new FactDefinition<StringFactModel>("Place", "Place of Death", "Place"),
+                        new FactDefinition<StringFactModel>("Cause", "Cause of Death", "Cause"),
+                        new FactDefinition<StringFactModel>("Burial", "Burial Place")
                     ),
                     new FactDefinitionGroup(
                         "Bio",
-                        "Биология",
+                        "Biology",
                         false,
-                        new FactDefinition<GenderFactModel>("Gender", "Пол"),
-                        new FactDefinition<BloodTypeFactModel>("Blood", "Группа крови", "Гр. крови"),
-                        new FactDefinition<StringFactModel>("Eyes", "Цвет глаз", "Глаза"),
-                        new FactDefinition<StringFactModel>("Hair", "Цвет волос", "Волосы")
+                        new FactDefinition<GenderFactModel>("Gender", "Gender"),
+                        new FactDefinition<BloodTypeFactModel>("Blood", "Blood Group", "Blood Gr."),
+                        new FactDefinition<StringFactModel>("Eyes", "Eye Color", "Eyes"),
+                        new FactDefinition<StringFactModel>("Hair", "Hair Color", "Hair")
                     ),
                     new FactDefinitionGroup(
                         "Person",
-                        "Личность",
+                        "Personality",
                         false,
-                        new FactDefinition<LanguageFactModel>("Language", "Язык", "Язык|Языки"),
-                        new FactDefinition<SkillFactModel>("Skill", "Хобби"),
-                        new FactDefinition<StringListFactModel>("Profession", "Профессия", "Профессия|Профессии"),
-                        new FactDefinition<StringListFactModel>("Religion", "Религия", "Религия|Религии")
+                        new FactDefinition<LanguageFactModel>("Language", "Language", "Language|Languages"),
+                        new FactDefinition<SkillFactModel>("Skill", "Hobby"),
+                        new FactDefinition<StringListFactModel>("Profession", "Profession", "Profession|Professions"),
+                        new FactDefinition<StringListFactModel>("Religion", "Religion", "Religion|Religions")
                     ),
                     new FactDefinitionGroup(
                         "Meta",
-                        "Прочее",
+                        "Other",
                         false,
-                        new FactDefinition<SocialProfilesFactModel>("SocialProfiles", "Соцсети")
+                        new FactDefinition<SocialProfilesFactModel>("SocialProfiles", "Social Networks")
                     )
                 },
 
@@ -68,34 +68,34 @@ namespace Bonsai.Code.DomainModel.Facts
                 {
                     new FactDefinitionGroup(
                         "Main",
-                        "Основное",
+                        "Main",
                         true,
-                        new FactDefinition<NameFactModel>("Name", "Имя")
+                        new FactDefinition<NameFactModel>("Name", "Name")
                     ),
                     new FactDefinitionGroup(
                         "Birth",
-                        "Рождение",
+                        "Birth",
                         true,
-                        new FactDefinition<BirthDateFactModel>("Date", "Дата рождения", "Дата"),
-                        new FactDefinition<StringFactModel>("Place", "Место рождения", "Место")
+                        new FactDefinition<BirthDateFactModel>("Date", "Date of Birth", "Date"),
+                        new FactDefinition<StringFactModel>("Place", "Place of Birth", "Place")
                     ),
                     new FactDefinitionGroup(
                         "Death",
-                        "Смерть",
+                        "Death",
                         true,
-                        new FactDefinition<DeathDateFactModel>("Date", "Дата смерти", "Дата"),
-                        new FactDefinition<StringFactModel>("Place", "Место смерти", "Место"),
-                        new FactDefinition<StringFactModel>("Cause", "Причина смерти", "Причина"),
-                        new FactDefinition<StringFactModel>("Burial", "Место захоронения")
+                        new FactDefinition<DeathDateFactModel>("Date", "Date of Death", "Date"),
+                        new FactDefinition<StringFactModel>("Place", "Place of Death", "Place"),
+                        new FactDefinition<StringFactModel>("Cause", "Cause of Death", "Cause"),
+                        new FactDefinition<StringFactModel>("Burial", "Burial Place")
                     ),
                     new FactDefinitionGroup(
                         "Bio",
-                        "Биология",
+                        "Biology",
                         true,
-                        new FactDefinition<GenderFactModel>("Gender", "Пол"),
-                        new FactDefinition<StringFactModel>("Species", "Вид"),
-                        new FactDefinition<StringFactModel>("Breed", "Порода"),
-                        new FactDefinition<StringFactModel>("Color", "Окрас")
+                        new FactDefinition<GenderFactModel>("Gender", "Gender"),
+                        new FactDefinition<StringFactModel>("Species", "Species"),
+                        new FactDefinition<StringFactModel>("Breed", "Breed"),
+                        new FactDefinition<StringFactModel>("Color", "Color")
                     )
                 },
 
@@ -103,11 +103,11 @@ namespace Bonsai.Code.DomainModel.Facts
                 {
                     new FactDefinitionGroup(
                         "Main",
-                        "Основное",
+                        "Main",
                         true,
-                        new FactDefinition<AddressFactModel>("Location", "Адрес"),
-                        new FactDefinition<DateFactModel>("Opening", "Приобретение"),
-                        new FactDefinition<DateFactModel>("Shutdown", "Продажа")
+                        new FactDefinition<AddressFactModel>("Location", "Address"),
+                        new FactDefinition<DateFactModel>("Opening", "Acquisition"),
+                        new FactDefinition<DateFactModel>("Shutdown", "Sale")
                     )
                 },
 
@@ -115,9 +115,9 @@ namespace Bonsai.Code.DomainModel.Facts
                 {
                     new FactDefinitionGroup(
                         "Main",
-                        "Основное",
+                        "Main",
                         true,
-                        new FactDefinition<DateFactModel>("Date", "Дата")
+                        new FactDefinition<DateFactModel>("Date", "Date")
                     )
                 },
 

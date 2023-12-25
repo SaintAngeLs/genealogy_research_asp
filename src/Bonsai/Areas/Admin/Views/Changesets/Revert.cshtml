@@ -10,6 +10,7 @@
         switch (Model.EntityType)
         {
             case ChangesetEntityType.Media:
+<<<<<<< HEAD
                 return dative ? "madia-file" : "media-file's";
 
             case ChangesetEntityType.Page:
@@ -17,6 +18,15 @@
 
             case ChangesetEntityType.Relation:
                 return dative ? "relation" : "relations";
+=======
+                return dative ? "media-file" : "media-file";
+
+            case ChangesetEntityType.Page:
+                return dative ? "page" : "page";
+
+            case ChangesetEntityType.Relation:
+                return dative ? "relation" : "relation";
+>>>>>>> dev
         }
 
         return null;
@@ -24,7 +34,11 @@
 
     var isRemoving = Model.ChangeType == ChangesetType.Created;
 
+<<<<<<< HEAD
     ViewBag.Title = (isRemoving ? "Delete " : "Revert ") + GetEntityType();
+=======
+    ViewBag.Title = (isRemoving ? "Deleting " : "Restoring ") + GetEntityType();
+>>>>>>> dev
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 }
 
@@ -41,13 +55,17 @@
 
 <div class="row">
     <div class="col-sm-9">
-        <h3>Изменение</h3>
+        <h3>Changes</h3>
 
         <dl class="row">
             <dt class="col-sm-2">Author</dt>
             <dd class="col-sm-10">@Model.Author</dd>
 
+<<<<<<< HEAD
             <dt class="col-sm-2">Data</dt>
+=======
+            <dt class="col-sm-2">Date</dt>
+>>>>>>> dev
             <dd class="col-sm-10">@Model.Date.ToLocalTime().ToString("f") (@Model.Date.ToLocalTime().Humanize())</dd>
         </dl>
     </div>
@@ -56,14 +74,23 @@
 @if (isRemoving)
 {
     <p>
+<<<<<<< HEAD
         Are you sure, you want to delete @GetEntityType(dative: true)?<br />
+=======
+        Are you sure you want to delete @GetEntityType(dative: true)?<br />
+>>>>>>> dev
     </p>
 }
 else
 {
     <p>
+<<<<<<< HEAD
         Are you sure you wnt to restore previous version @GetEntityType()?<br />
         All the edit details provided will be lost.
+=======
+        Are you sure you want to restore the previous version @GetEntityType()?<br />
+        If you provided any editions they will be lost
+>>>>>>> dev
     </p>
 }
 

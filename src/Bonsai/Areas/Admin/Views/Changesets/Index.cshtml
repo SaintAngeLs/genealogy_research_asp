@@ -7,7 +7,11 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @model ChangesetsListVM
 @{
+<<<<<<< HEAD
     ViewBag.Title = "Edit details list";
+=======
+    ViewBag.Title = "Edit List";
+>>>>>>> dev
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var baseUrl = Url.Action("Index", "Changesets", new { area = "Admin" });
@@ -62,7 +66,11 @@
                 <th width="1px"></th>
                 <th width="30%">Title</th>
                 <th width="15%">Type</th>
+<<<<<<< HEAD
                 <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Date), title = "Data" })</th>
+=======
+                <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Date), title = "Date" })</th>
+>>>>>>> dev
                 <th width="15%">Action</th>
                 <th width="20%">@await Component.InvokeAsync("ListHeaderComponent", new { url = baseUrl, request = Model.Request, propName = nameof(ChangesetTitleVM.Author), title = "Author" })</th>
                 <th width="1px"></th>

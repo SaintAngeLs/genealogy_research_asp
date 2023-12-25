@@ -15,17 +15,17 @@
         }
         if (maxSize < 1024)
         {
-            return maxSize + " Б";
+            return maxSize + " B";
         }
         if (maxSize < 1024 * 1024)
         {
-            return Math.Round(maxSize.Value / 1024M, 2) + " КБ";
+            return Math.Round(maxSize.Value / 1024M, 2) + " KB";
         }
         if (maxSize < 1024 * 1024 * 1024)
         {
-            return Math.Round(maxSize.Value / (1024M * 1024), 2) + " МБ";
+            return Math.Round(maxSize.Value / (1024M * 1024), 2) + " MB";
         }
-        return Math.Round(maxSize.Value / (1024M * 1024 * 1024), 2) + " ГБ";
+        return Math.Round(maxSize.Value / (1024M * 1024 * 1024), 2) + " GB";
     }
 }
 
@@ -35,7 +35,11 @@
     <div class="form-row">
         <div class="form-group col-sm-4">
             <label for="Date">Date</label>
+<<<<<<< HEAD
             <input type="text" id="Date" class="form-control datepicker" placeholder="yyyy.mm.dd" />
+=======
+            <input type="text" id="Date" class="form-control datepicker" placeholder="ГГГГ.ММ.ДД" />
+>>>>>>> dev
         </div>
         <div class="form-group col-sm-4">
             <label for="Location">Place</label>
@@ -48,13 +52,13 @@
     </div>
     <div class="pl-4">
         <input type="checkbox" id="UseFileNameAsTitle" class="custom-control-input" checked="checked"/>
-        <label for="UseFileNameAsTitle" class="custom-control-label">Take the name from the file name</label>
+        <label for="UseFileNameAsTitle" class="custom-control-label">Use the fille name as the title</label>
     </div>
 </form>
 
 <div class="card media-uploader" data-max-size="@maxSize">
     <div class="card-body">
-        <div>Click here for the file upload</div>
+        <div>Click here to upload a new file</div>
             @if (maxSize != null)
             {
                 <div class="mt-2">

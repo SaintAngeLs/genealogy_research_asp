@@ -1,7 +1,7 @@
 ﻿@using Bonsai.Code.Services.Config
 @inject BonsaiConfigService ConfigService
 @{
-    var appTitle = "Bonsai";
+    var appTitle = "RelationS";
     var rootUrl = "/";
     var isStarted = ViewBag.StartupMode != true;
 
@@ -39,7 +39,7 @@
                         @if (ViewBag.DisableSearch == null)
                         {
                             <form method="get" action="@Url.Action("Search", "Search")">
-                                <input type="text" name="query" id="search-query" placeholder="Поиск…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="@ViewBag.SearchQuery" />
+                                <input type="text" name="query" id="search-query" placeholder="Search…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" value="@ViewBag.SearchQuery" />
                             </form>
                         }
                     </div>

@@ -12,7 +12,7 @@
 
     $d.prop('autocomplete', 'off');
     $d.tooltip({
-        title: 'Недопустимая дата'
+        title: 'Inappropriate date'
     });
 
     $d.on('click', function () {
