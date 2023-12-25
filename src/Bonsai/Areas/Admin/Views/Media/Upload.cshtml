@@ -2,7 +2,7 @@
 @inject BonsaiConfigService Config
 
 @{
-    ViewBag.Title = "Загрузка медиа";
+    ViewBag.Title = "Upload media";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 
     var maxSize = @Config.GetStaticConfig().WebServer.MaxUploadSize;
@@ -29,36 +29,36 @@
     }
 }
 
-<h1>Загрузка медиа</h1>
+<h1>Upload media</h1>
 
 <form>
     <div class="form-row">
         <div class="form-group col-sm-4">
-            <label for="Date">Дата</label>
-            <input type="text" id="Date" class="form-control datepicker" placeholder="ГГГГ.ММ.ДД" />
+            <label for="Date">Date</label>
+            <input type="text" id="Date" class="form-control datepicker" placeholder="yyyy.mm.dd" />
         </div>
         <div class="form-group col-sm-4">
-            <label for="Location">Место</label>
+            <label for="Location">Place</label>
             <select id="Location"></select>
         </div>
         <div class="form-group col-sm-4">
-            <label for="Event">Событие</label>
+            <label for="Event">Event</label>
             <select id="Event"></select>
         </div>
     </div>
     <div class="pl-4">
         <input type="checkbox" id="UseFileNameAsTitle" class="custom-control-input" checked="checked"/>
-        <label for="UseFileNameAsTitle" class="custom-control-label">Брать название из имени файла</label>
+        <label for="UseFileNameAsTitle" class="custom-control-label">Take the name from the file name</label>
     </div>
 </form>
 
 <div class="card media-uploader" data-max-size="@maxSize">
     <div class="card-body">
-        <div>Нажмите сюда для загрузки нового файла</div>
+        <div>Click here for the file upload</div>
             @if (maxSize != null)
             {
                 <div class="mt-2">
-                    <small class="text-muted">Не более @RenderSize()</small>
+                    <small class="text-muted">No more than @RenderSize()</small>
                 </div>
             }
         <input type="file" name="file" multiple="multiple" />
@@ -78,10 +78,10 @@
                 <div class="progress">
                     <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"></div>
                 </div>
-                <span class="error text-danger text-small" style="display: none">Ошибка</span>
+                <span class="error text-danger text-small" style="display: none">Error</span>
                 <a href="#" class="media-edit-link" target="_blank" style="display: none">
                     <span class="fa fa-pencil"></span>
-                    Редактировать
+                    Edit
                 </a>
             </div>
         </div>

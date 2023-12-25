@@ -4,7 +4,7 @@
     <div class="fact-wrapper">
         <h6>
             {{def.title}}
-            <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="add({})" title="Указать ссылку">
+            <button type="button" class="btn btn-outline-secondary btn-sm" v-on:click="add({})" title="Provide link">
                 <i class="fa fa-plus"></i>
             </button>
         </h6>
@@ -13,7 +13,7 @@
                 <div class="col-sm-8 form form-fact fact-list-item">
                     <div class="form-row">
                         <div class="form-group col-sm-4">
-                            <label>Тип</label>
+                            <label>Type</label>
                             <select v-model="row.Type" class="form-control form-control-sm mr-2">
                                 @foreach (var prof in EnumHelper.GetEnumDescriptions<SocialProfileType>())
                                 {
@@ -22,10 +22,10 @@
                             </select>
                         </div>
                         <div class="form-group col-sm-8">
-                            <button type="button" class="btn btn-outline-danger btn-sm btn-remove-fact" v-on:click="remove(row)" title="Удалить ссылку">
+                            <button type="button" class="btn btn-outline-danger btn-sm btn-remove-fact" v-on:click="remove(row)" title="Delete link">
                                 <i class="fa fa-remove"></i>
                             </button>
-                            <label>Ссылка</label>
+                            <label>Link</label>
                             <input type="text" v-model="row.Value" class="form-control form-control-sm mr-2" />
                         </div>
                     </div>

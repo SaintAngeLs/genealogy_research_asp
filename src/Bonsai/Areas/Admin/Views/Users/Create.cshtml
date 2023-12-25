@@ -13,13 +13,9 @@
 <h1>@ViewBag.Title</h1>
 
 <div class="alert alert-info" notification-id="@NotificationsService.NOTE_PASSWORD_AUTH">
-    <p><strong>Вы создаете профиль с авторизацией по паролю.</strong></p>
+    <p><strong>You are creating profile with the password authorization.</strong></p>
     <p>
-        Данный тип авторизации менее надежен и удобен, однако не требует учетной записи в соцсетях.
-        Он подходит, например, для пожилых родственников, или для быстрой проверки функционала.
-    </p>
-    <p>
-        Если пользователь забудет свой пароль, он не сможет восстановить его самостоятельно - это может сделать только администратор.
+        It will not be possible the change the password with no administrator's help.
     </p>
 </div>
 
@@ -27,30 +23,30 @@
     <div class="col-md-8 col-sm-12">
         <form action="@Url.Action("Create")" method="post">
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="LastName">Фамилия</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="LastName">Last Name</label>
                 <div class="col-sm-9">
                     <input asp-for="LastName" class="form-control" />
                     <span asp-validation-for="LastName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">Имя</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="FirstName">Name</label>
                 <div class="col-sm-9">
                     <input asp-for="FirstName" class="form-control" />
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Отчество</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="MiddleName">Father Name</label>
                 <div class="col-sm-9">
                     <input asp-for="MiddleName" class="form-control" />
                     <span asp-validation-for="MiddleName" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Дата рождения</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="Birthday">Birth date</label>
                 <div class="col-sm-6">
-                    <input asp-for="Birthday" class="form-control datepicker" placeholder="ГГГГ.ММ.ДД" />
+                    <input asp-for="Birthday" class="form-control datepicker" placeholder="yyyy.mm.dd" />
                     <span asp-validation-for="Birthday" class="text-danger"></span>
                 </div>
             </div>
@@ -58,21 +54,21 @@
                 <label class="col-sm-3 col-form-label form-label-required" asp-for="Email">E-mail</label>
                 <div class="col-sm-9">
                     <input asp-for="Email" class="form-control" />
-                    <div class="small text-muted">Будет использоваться в качестве логина</div>
+                    <div class="small text-muted">E-mail will be used for the login</div>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="Password">Пароль</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="Password">Password</label>
                 <div class="col-sm-9">
                     <input type="password" asp-for="Password" class="form-control" />
-                    <div class="small text-muted">Минимум 6 символов</div>
+                    <div class="small text-muted">Minimum 6 literals</div>
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="PasswordCopy">Повтор пароля</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="PasswordCopy">Confirm password</label>
                 <div class="col-sm-9">
                     <input type="password" asp-for="PasswordCopy" class="form-control" />
                     <span asp-validation-for="PasswordCopy" class="text-danger"></span>
@@ -80,7 +76,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Доступ</label>
+                <label class="col-sm-3 col-form-label form-label-required" asp-for="Role">Access</label>
                 <div class="col-sm-9">
                     <select asp-for="Role" asp-items="@data.UserRoleItems" class="form-control"></select>
                     <span asp-validation-for="Role" class="text-danger"></span>
@@ -88,7 +84,7 @@
             </div>
 
             <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Страница</label>
+                <label class="col-sm-3 col-form-label">Page</label>
                 <div class="col-sm-9">
                     <div>
                         <select asp-for="PersonalPageId" asp-items="@data.PageItems"></select>
@@ -98,7 +94,7 @@
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" asp-for="CreatePersonalPage" class="custom-control-input" id="CreatePersonalPage" />
                         <label class="custom-control-label" for="CreatePersonalPage">
-                            Создать новую
+                            Create new page
                         </label>
                     </div>
                 </div>
@@ -107,14 +103,14 @@
             @if (!ViewData.ModelState.IsValid)
             {
                 <div class="alert alert-danger" role="alert">
-                    <strong>Ошибка:</strong> пожалуйста, убедитесь, что вы заполнили все поля корректно и попробуйте снова.
+                    <strong>Error:</strong> please, make sure, the input is correct and try again.
                 </div>
             }
 
             <div class="form-group row mb-5">
                 <div class="offset-sm-3 col-sm-6">
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
-                    <a class="btn btn-secondary" href="@Url.Action("Index")">Отмена</a>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a class="btn btn-secondary" href="@Url.Action("Index")">Cancel</a>
                 </div>
             </div>
         </form>

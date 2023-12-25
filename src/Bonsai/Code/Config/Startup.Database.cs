@@ -51,16 +51,16 @@ namespace Bonsai.Code.Config
             var sp = scope.ServiceProvider;
             var demoCfg = Configuration.DemoMode ?? new DemoModeConfig(); // all false
 
-            startupService.AddTask(
-                "DatabaseMigrate",
-                "Подготовка базы",
-                async () =>
-                {
-                    var db = sp.GetService<AppDbContext>();
-                    await db.EnsureDatabaseCreatedAsync();
-                    await db.EnsureSystemItemsCreatedAsync();
-                }
-            );
+            // startupService.AddTask(
+            //     "DatabaseMigrate",
+            //     "Подготовка базы",
+            //     async () =>
+            //     {
+            //         var db = sp.GetService<AppDbContext>();
+            //         await db.EnsureDatabaseCreatedAsync();
+            //         await db.EnsureSystemItemsCreatedAsync();
+            //     }
+            // );
 
             if (demoCfg.Enabled)
             {
@@ -89,30 +89,30 @@ namespace Bonsai.Code.Config
                 }
             }
 
-            startupService.AddTask(
-                "FullTextIndexInit",
-                "Подготовка поискового индекса",
-                async () =>
-                {
-                    var search = sp.GetService<ISearchEngine>();
-                    var db = sp.GetService<AppDbContext>();
+            // startupService.AddTask(
+            //     "FullTextIndexInit",
+            //     "Подготовка поискового индекса",
+            //     async () =>
+            //     {
+            //         var search = sp.GetService<ISearchEngine>();
+            //         var db = sp.GetService<AppDbContext>();
 
-                    await search.InitializeAsync();
+            //         await search.InitializeAsync();
 
-                    var pages = await db.Pages.Include(x => x.Aliases).ToListAsync();
-                    foreach (var page in pages)
-                        await search.AddPageAsync(page);
-                });
+            //         var pages = await db.Pages.Include(x => x.Aliases).ToListAsync();
+            //         foreach (var page in pages)
+            //             await search.AddPageAsync(page);
+            //     });
             
-            startupService.AddTask(
-                "BuildPageReferences",
-                "Обнаружение ссылок между страницами",
-                () => BuildPageReferences(sp)
-            );
+            // startupService.AddTask(
+            //     "BuildPageReferences",
+            //     "Обнаружение ссылок между страницами",
+            //     () => BuildPageReferences(sp)
+            // );
 
-            startupService.AddTask("CheckMissingMedia", "", () => CheckMissingMediaAsync(sp));
+            // startupService.AddTask("CheckMissingMedia", "", () => CheckMissingMediaAsync(sp));
             
-            startupService.AddTask("Finalize", "", async () => scope.Dispose());
+            // startupService.AddTask("Finalize", "", async () => scope.Dispose());
 
             startupService.RunStartupTasks();
         }

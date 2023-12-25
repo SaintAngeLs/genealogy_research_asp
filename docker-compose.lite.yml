@@ -1,7 +1,8 @@
 ﻿version: "3.3"
 services:
   bonsai:
-    image: impworks/bonsai:latest
+    # image: impworks/bonsai:latest
+    image: adrianvsaint/relations
     restart: unless-stopped
     volumes:
       - images:/app/wwwroot/media

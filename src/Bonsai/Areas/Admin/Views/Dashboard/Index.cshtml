@@ -4,7 +4,7 @@
 @using Bonsai.Code.Utils.Helpers
 
 @{
-    ViewBag.Title = "Панель администрации";
+    ViewBag.Title = "Admin pannel";
     Layout = "~/Areas/Admin/Views/Layout.cshtml";
 }
 
@@ -13,14 +13,14 @@
         <div class="card">
             <a class="card-body" href="@Url.Action("Index", "Pages", new {area = "Admin"})">
                 <h2 class="card-title text-center">@Model.PagesCount</h2>
-                <p class="card-text text-center">@Model.PagesCount.DisplayNumeric("страница", "страницы", "страниц", false)</p>
+                <p class="card-text text-center">@Model.PagesCount.DisplayNumeric("page", "page's", "pages", false)</p>
             </a>
             @if (Model.PagesToImproveCount > 0)
             {
                 <div class="card-footer">
                     <small class="text-muted">
                         <a href="@Url.Action("Index", "Pages", new {area = "Admin", OrderBy = "CompletenessScore", OrderDescending = false})">
-                            @Model.PagesToImproveCount можно улучшить
+                            @Model.PagesToImproveCount may be improved
                         </a>
                     </small>
                 </div>
@@ -30,13 +30,13 @@
         <div class="card">
             <a class="card-body" href="@Url.Action("Index", "Media", new { area = "Admin" })">
                 <h2 class="card-title text-center">@Model.MediaCount</h2>
-                <p class="card-text text-center">@Model.MediaCount.DisplayNumeric("медиа-файл", "медиа-файла", "медиа-файлов", false)</p>
+                <p class="card-text text-center">@Model.MediaCount.DisplayNumeric("media-file", "media-file's", "media-files", false)</p>
             </a>
             @if (Model.MediaToTagCount > 0)
             {
                 <div class="card-footer">
                     <small class="text-muted">
-                        <a href="@Url.Action("Index", "Media", new {area = "Admin"})">@Model.MediaToTagCount без отметок</a>
+                        <a href="@Url.Action("Index", "Media", new {area = "Admin"})">@Model.MediaToTagCount with no notes</a>
                     </small>
                 </div>
             }
@@ -45,7 +45,7 @@
         <div class="card">
             <a class="card-body" href="@Url.Action("Index", "Relations", new { area = "Admin" })">
                 <h2 class="card-title text-center">@Model.RelationsCount</h2>
-                <p class="card-text text-center">@Model.RelationsCount.DisplayNumeric("связь", "связи", "связей", false)</p>
+                <p class="card-text text-center">@Model.RelationsCount.DisplayNumeric("relation", "relations", "relations", false)</p>
             </a>
         </div>
 
@@ -53,13 +53,13 @@
         <div class="card">
             <a class="card-body" href="@Url.Action("Index", "Users", new { area = "Admin" })">
                 <h2 class="card-title text-center">@Model.UsersCount</h2>
-                <p class="card-text text-center">@Model.UsersCount.DisplayNumeric("пользователь", "пользователя", "пользователей", false)</p>
+                <p class="card-text text-center">@Model.UsersCount.DisplayNumeric("user", "user's", "users", false)</p>
             </a>
             @if (Model.UsersPendingValidationCount > 0)
             {
                 <div class="card-footer">
                     <small class="text-muted">
-                        <a href="@Url.Action("Index", "Users", new {area = "Admin"})">@Model.UsersPendingValidationCount.DisplayNumeric("запрос", "запроса", "запросов") </a>
+                        <a href="@Url.Action("Index", "Users", new {area = "Admin"})">@Model.UsersPendingValidationCount.DisplayNumeric("request", "request's", "requests") </a>
                     </small>
                 </div>
             }
@@ -79,8 +79,8 @@
     else
     {
         <div class="alert alert-info">
-            Здесь будет показываться список последних действий.<br />
-            Вы можете создать <a href="@Url.Action("Index", "Pages", new { area = "Admin" } )">страницу</a> или <a href="@Url.Action("Upload", "Media", new { area = "Admin" })">загрузить медиа-файлы</a>.
+            Here the list of last changes will be shown.<br />
+            Вы можете создать <a href="@Url.Action("Index", "Pages", new { area = "Admin" } )">page</a> or <a href="@Url.Action("Upload", "Media", new { area = "Admin" })">upload media-files</a>.
         </div>
     }
 </div>
