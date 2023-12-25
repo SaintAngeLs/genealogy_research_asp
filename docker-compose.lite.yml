@@ -2,7 +2,7 @@
 services:
   bonsai:
     # image: impworks/bonsai:latest
-    image: adrianvsaint/relations
+    image: adrianvsaint/relations:latest
     restart: unless-stopped
     volumes:
       - images:/app/wwwroot/media

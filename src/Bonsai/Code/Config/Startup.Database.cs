@@ -51,16 +51,16 @@ namespace Bonsai.Code.Config
             var sp = scope.ServiceProvider;
             var demoCfg = Configuration.DemoMode ?? new DemoModeConfig(); // all false
 
-            // startupService.AddTask(
-            //     "DatabaseMigrate",
-            //     "Подготовка базы",
-            //     async () =>
-            //     {
-            //         var db = sp.GetService<AppDbContext>();
-            //         await db.EnsureDatabaseCreatedAsync();
-            //         await db.EnsureSystemItemsCreatedAsync();
-            //     }
-            // );
+            startupService.AddTask(
+                "DatabaseMigrate",
+                "Подготовка базы",
+                async () =>
+                {
+                    var db = sp.GetService<AppDbContext>();
+                    await db.EnsureDatabaseCreatedAsync();
+                    await db.EnsureSystemItemsCreatedAsync();
+                }
+            );
 
             if (demoCfg.Enabled)
             {
