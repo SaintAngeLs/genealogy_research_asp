@@ -1,12 +1,12 @@
 ﻿@model Bonsai.Areas.Front.ViewModels.Search.SearchVM
 @{
-    ViewBag.Title = "Поиск";
+    ViewBag.Title = "Search";
     ViewBag.SearchQuery = Model.Query;
     Layout = "~/Areas/Front/Views/Layout.cshtml";
 }
 
 <div class="search-results load-on-scroll" data-load-url="@Url.Action("SearchResults", "Search")" data-load-elem-class=".search-result">
-    <h1>Результаты поиска</h1>
+    <h1>Search results</h1>
 
     @if (Model.Results.Any())
     {
@@ -18,11 +18,11 @@
         <div class="alert alert-warning" role="alert">
             @if (!(Model.Query?.Length >= 3))
             {
-                <text>Запрос слишком короткий. Введите как минимум три символа.</text>
+                <text>Request is too short. Please provide at least 3 characters</text>
             }
             else
             {
-                <text>По вашему запросу ничего не найдено.</text>
+                <text>No results found</text>
             }
         </div>
     }
