@@ -36,7 +36,7 @@
         },
         language: function (data, key, value) {
             if (data[key].Values.length === 0) {
-                value.Name = 'Русский';
+                value.Name = 'Ukrainian'
                 value.Proficiency = 'Native';
             }
         }
