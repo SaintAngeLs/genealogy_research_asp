@@ -229,7 +229,7 @@ namespace Bonsai.Areas.Admin.Logic.Changesets
                 }
 
                 default:
-                    throw new ArgumentException($"Неизвестный тип сущности: {chg.EntityType}!");
+                    throw new ArgumentException($"Unknown relation type: {chg.EntityType}!");
             }
         }
 
