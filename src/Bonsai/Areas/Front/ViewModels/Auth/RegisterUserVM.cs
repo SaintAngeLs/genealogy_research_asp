@@ -23,29 +23,29 @@ namespace Bonsai.Areas.Front.ViewModels.Auth
         /// First name.
         /// </summary>
         [StringLength(256)]
-        [Required(ErrorMessage = "Введите ваше имя.")]
+        [Required(ErrorMessage = "Input your name.")]
         public string FirstName { get; set; }
 
         /// <summary>
         /// Last name.
         /// </summary>
         [StringLength(256)]
-        [Required(ErrorMessage = "Введите вашу фамилию.")]
+        [Required(ErrorMessage = "Input your last name.")]
         public string LastName { get; set; }
 
         /// <summary>
         /// Middle name.
         /// </summary>
         [StringLength(256)]
-        [Required(ErrorMessage = "Введите ваше отчество.")]
+        [Required(ErrorMessage = "Input your middlename.")]
         public string MiddleName { get; set; }
 
         /// <summary>
         /// Birthday.
         /// </summary>
         [StringLength(10)]
-        [Required(ErrorMessage = "Введите дату вашего рождения.")]
-        [RegularExpression("[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}", ErrorMessage = "Введите дату в формате ГГГГ.ММ.ДД")]
+        [Required(ErrorMessage = "Input your birth date.")]
+        [RegularExpression("[0-9]{4}\\.[0-9]{2}\\.[0-9]{2}", ErrorMessage = "Input date as yyyy.mm.dd")]
         public string Birthday { get; set; }
 
         /// <summary>

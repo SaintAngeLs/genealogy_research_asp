@@ -176,7 +176,7 @@ namespace Bonsai.Areas.Admin.Logic.Tree
                         persons.Add(fakeId, new TreePersonVM
                         {
                             Id = fakeId.ToString(),
-                            Name = "Неизвестно",
+                            Name = "Unknown",
                             IsMale = fakeGender,
                             Photo = GetPhoto(null, fakeGender)
                         });
