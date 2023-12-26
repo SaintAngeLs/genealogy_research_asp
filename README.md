@@ -1,8 +1,8 @@
-# Bonsai
+# RelationS
 
-A family wiki and photoalbum engine (in Russian).
+Family genealogy research application
 
-### [Live demo](https://bonsai.kirillorlov.pro)
+### [Live demo](https://genealogyasp.azurewebsites.net)
 
 ## Features
 
@@ -76,7 +76,10 @@ docker login
 ```
 
 4. Push the docker image to the dokcerhub with (in this case change the *adrianvsain* to your dokcerhub login)
+
+```
 docker tag  bonsai-app  adrianvsaint/relations:latest 
+```
 
 5. Push the docker image to the dockerhun space
 ```
