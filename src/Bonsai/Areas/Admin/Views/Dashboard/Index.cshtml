@@ -53,7 +53,7 @@
         <div class="card">
             <a class="card-body" href="@Url.Action("Index", "Users", new { area = "Admin" })">
                 <h2 class="card-title text-center">@Model.UsersCount</h2>
-                <p class="card-text text-center">@Model.UsersCount.DisplayNumeric("user", "user's", "users", false)</p>
+                <p class="card-text text-center">@Model.UsersCount.DisplayNumeric("user", "users", "users", false)</p>
             </a>
             @if (Model.UsersPendingValidationCount > 0)
             {

@@ -1,70 +1,72 @@
 # Bonsai
 
-Фамильный вики-движок и фотоальбом.
+A family wiki and photoalbum engine (in Russian).
 
-### [Демо: попробовать в действии](https://bonsai.kirillorlov.pro)
+### [Live demo](https://bonsai.kirillorlov.pro)
 
-## Возможности
+## Features
 
-* Страницы с разметкой Markdown
-* Медиа-файлы: фото, видео, планируется поддержка документов PDF
-* Отметки людей на фото
-* Родственные связи (с проверками и автоматическим выводом)
-* Факты (дата рождения, пол, группа крови, владение языками, хобби, и так далее)
-* Контроль доступа по ролям: администратор, редактор, читатель, гость
-* История правок: для любой страницы или медиа-файла хранится история с diff'ами и возможностью отката к предыдущей версии
+* Pages with Markdown text
+* Media files: photos, videos (PDF documents will be supported later)
+* Person tags on photos
+* Relations: validation, inferrence
+* Fact storage (birthday, gender, blood type, languages, hobbies, etc.)
+* Access control: editor, reader and guest roles
+* Changesets: browse changes to any page/media, see diffs, easily revert if necessary
 
-## Скриншоты
+## Screenshots
 
-#### Публичные страницы:
+#### Front-end:
 
 <a href="https://user-images.githubusercontent.com/604496/46574247-037d4f00-c9a9-11e8-8585-0d574dda2600.png"><img src="https://user-images.githubusercontent.com/604496/46574252-1859e280-c9a9-11e8-821f-daeaaac7de3f.png" /></a>
 <a href="https://user-images.githubusercontent.com/604496/46574259-2c054900-c9a9-11e8-8ecc-ca542053f665.png"><img src="https://user-images.githubusercontent.com/604496/46574288-9a4a0b80-c9a9-11e8-8373-2a7d3e00289c.png" /></a>
 <a href="https://user-images.githubusercontent.com/604496/46574262-31629380-c9a9-11e8-9ea6-18fbe63f239f.png"><img src="https://user-images.githubusercontent.com/604496/46574291-9f0ebf80-c9a9-11e8-8656-8a54dd2f2be7.png" /></a>
 
-#### Панель администратора:
+#### Admin panel:
 
 <a href="https://user-images.githubusercontent.com/604496/46574266-3f181900-c9a9-11e8-828d-9d9a5db25acb.png"><img src="https://user-images.githubusercontent.com/604496/46574292-a209b000-c9a9-11e8-8193-cd99fc1f5f91.png" /></a>
 <a href="https://user-images.githubusercontent.com/604496/46574268-43443680-c9a9-11e8-974f-f8a60fbeaa74.png"><img src="https://user-images.githubusercontent.com/604496/46574297-a504a080-c9a9-11e8-8612-d3e5cd1592a4.png" /></a>
 
-## Установка с помощью Docker
-1. Скачайте файл [docker-compose.lite.yml](docker-compose.lite.yml).
+## Installation via Docker
+1. Download the [docker-compose.lite.yml](docker-compose.lite.yml).
 
-2. _Опционально_: 
+2. _Optional_: 
 
-    Настройте доступ по HTTPS для дополнительной безопасности.
+    Configure your Bonsai instance to use HTTPS for better security.
 
-    Вы можете использовать любые доступные сервисы, например [Cloudflare Tunnel](https://github.com/impworks/bonsai/wiki/%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D1%82%D1%83%D0%BD%D0%BD%D0%B5%D0%BB%D1%8F-Cloudflare) (бесплатно, несложно, нужен домен), Synology DDNS (бесплатно, просто, нужен Synology NAS), или другие.
+    You can use any vendor-specific options: e.g. Cloudflare Tunnel (free, fairly easy to configure, but requires a domain), Synology DDNS (free, very easy, requires a Synology NAS device), etc.
 
-    Это трудоемкий шаг, поэтому если вы просто хотите попробовать Bonsai своими руками локально - его и следующий можно пропустить или отложить.
+    This requires a bit of work, so if you just want to give Bonsai a quick spin - feel free to skip or postpone this one and the next.
 
-3. _Опционально_:
+3. _Optional_:
 
-    Создайте [приложение авторизации Google](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-6.0) (или Yandex, Вконтакте).
+    Create a [Google Authorization app](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-6.0) (or Yandex / VK.com).
 
-    Отредактируйте файл `docker-compose.lite.yml`:
+    Modify `docker-compose.lite.yml`:
 
-    * Впишите данные для авторизации Google в поля `Auth__Google__ClientId` и `Auth__Google__ClientSecret`
-    * Задайте настройку `Auth__AllowPasswordAuth=false`, если хотите отключить менее безопасную авторизацию по паролю
+    * Save Google authorization credentials to `Auth__Google__ClientId` and `Auth__Google__ClientSecret` config properties
+    * Set `Auth__AllowPasswordAuth=false` if you want to disable the less-secure password authorization
 
-4. Запустите все контейнеры с помощью `docker compose`:
+    
+
+4. Bring everything up using `docker compose`:
    ```
    docker-compose up -d
    ```
-5. После старта Bonsai будет доступен на порту `8080`.
+5. After everything is brought up Bonsai will listen on port `8080`.
 
-## Разработка (на Windows)
+## Development (on Windows)
 
-Для участия в разработке понадобится:
+For development, you will need the following:
 
-* [.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0): основной рантайм для Bonsai
+* [.NET 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0): the main runtime for Bonsai
 
-1. Установите [NodeJS 14](https://nodejs.org/en/)
-2. Установите [PostgreSQL server 9.6](https://www.openscg.com/bigsql/postgresql/installers.jsp/)
-3. Скачайте [shared-сборку ffmpeg](https://ffmpeg.zeranoe.com/builds/) для вашей операционной системы и извлеките данные в папку `External/ffmpeg` в корне проекта (необходимы исполняемые файлы `ffmpeg` и `ffprobe`).
-4. Создайте файл `appsettings.Development.json`, пропишите строку подключения к БД:
+1. Install [NodeJS 14](https://nodejs.org/en/)
+2. Install [PostgreSQL server 9.6](https://www.openscg.com/bigsql/postgresql/installers.jsp/)
+3. Download [ffmpeg shared binaries](https://ffmpeg.zeranoe.com/builds/) for your system and extract the archive's contents into `External/ffmpeg` folder in the solution root (must contain both `ffmpeg` and `ffprobe` executables).
+4. Create a file called `appsettings.Development.json`, add the connection string:
 
-  ```
+    ```
     {
       "ConnectionStrings": {
         "Database": "Server=127.0.0.1;Port=5432;Database=bonsai;User Id=<login>;Password=<password>;Persist Security Info=true"
@@ -73,77 +75,86 @@
         "AllowPasswordAuth": true
       } 
     }
-  ```
+    ```
 
-5. _Опционально, но рекомендуемо_:
+5. _Optional, but suggested_:
 
-    Создайте [приложение авторизации Google](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-6.0) (или Yandex, Вконтакте).
+    Create a [Google Authorization App](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-6.0) (or Yandex / VK.com).
 
-    Впишите данные для авторизации в файл `appsettings.Development.json` и установите свойство `AllowPasswordAuth` в значение `false`:
+    Add the retrieved authorization credentials to the `appsettings.Development.json` and set `AllowPasswordAuth` to `false`:
 
     ```
     {
-      "Auth": {
-        "AllowPasswordAuth": false,
-        "Google": {
-          "ClientId": "<...>",
-          "ClientSecret": "<...>" 
-        },
-        "Yandex": {
-          "ClientId": "<...>",
-          "ClientSecret": "<...>" 
-        },
-        "Vkontakte": {
-          "ClientId": "<...>",
-          "ClientSecret": "<...>" 
+        "Auth": {
+            "AllowPasswordAuth": false,
+            "Google": {
+              "ClientId": "<...>",
+              "ClientSecret": "<...>" 
+            },
+            "Yandex": {
+              "ClientId": "<...>",
+              "ClientSecret": "<...>" 
+            },
+            "Vkontakte": {
+              "ClientId": "<...>",
+              "ClientSecret": "<...>" 
+            }
         }
-      }
     }
     ```
     
-6. Создайте базу данных:
+6. Create the database:
 
     ```
     dotnet ef database update
     ```
-7. Запустите сборку стилей и скриптов:
+7. Build the styles and scripts:
 
     ```
     npm install
     npm run build
     ```
-8. Запустите приложение (из Visual Studio или через `dotnet run`).
+8. Run the app (as Visual Studio project or using `dotnet run`).
 
-## Безопасность
+## Security considerations
 
-### Резервные копии данных
+### Data backup
 
-Если вам ценна информация, которую вы заносите в Bonsai, обязательно **НАСТРОЙТЕ РЕЗЕРВНОЕ КОПИРОВАНИЕ**.
+If you value the data that you store in Bonsai, make sure that you **SET UP BACKUPS**.
 
-Копировать необходимо следующие данные:
+You will need to back up the following:
 
-* Базу данных (десятки мегабайт)
-* Загруженные медиа-файлы в папке `wwwroot/media` (могут быть гигабайты)
+* Database (approximately tens of megabytes)
+* Uploaded media in `wwwroot/media` (may contain gigabytes of data)
 
-Существует множество подходов, платных и бесплатных: загрузка в облако, копирование на дополнительные носители и т.д.
-Выбор наиболее уместного подхода, с учетом вашего бюджета и объема данных, остается за вами.
+There are many options available, free and paid: uploading to a cloud storage, copying to external drives, etc. Please consider your usage/budget and select a combination that works best for you.
 
-### Способы авторизации
+### Authorization methods
 
-Bonsai поддерживает 2 метода авторизации: OAuth с использованием внешних сайтов и авторизация по паролю.
+Bonsai features two authorization methods: OAuth and password authorization.
 
-OAuth является предпочтительным: он проще для пользователей, более безопасный и универсальный. **Если можете, используйте его!**
-Для этого вам потребуется создать приложение авторизации на сайте [Google](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-6.0), [ВКонтакте](https://vk.com/editapp?act=create) или в [Яндексе](https://oauth.yandex.ru/client/new), как написано в инструкции.
-Можно подключить несколько авторизационных приложений одновременно - пользователи смогут выбирать из них то, которое им больше по душе.
+OAuth is the preferred method: it's easier to use for end users, more secure and versatile. **Please use the OAuth method if you can!**
+For OAuth, you will need to create an authorization app on [Google](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/google-logins?view=aspnetcore-6.0), [Vkontakte](https://vk.com/editapp?act=create), or [Yandex](https://oauth.yandex.ru/client/new) as described in the installation steps.
+You can enable multiple authorization apps at the same time: users will pick the one they prefer.
 
-Также вы можете создать учетную запись с авторизацией по логину и паролю. Она пригодится в двух случаях:
+As a fallback, you can also create an account with classic login/password authorization. It can be used for two purposes:
 
-* Быстро попробовать Bonsai в действии (установка без создания приложений значительно быстрее)
-* Дать доступ родственникам, которые не зарегистрированы в соцсетях
+* Playing around with Bonsai (easier to set up: no auth app and https configuration required)
+* Giving access to elder family members who don't have a social network account
 
-Несколько фактов об авторизации, которые стоит иметь в виду:
+Please keep the following facts in mind:
 
-* У одной учетной записи может быть только один способ авторизации: или пароль, или Google, или Вконтакте, и т.д.
-* После создания учетной записи поменять тип авторизации нельзя.
-* Учетные записи с авторизацией по паролю автоматически блокируются, если пароль был введен неверно слишком много раз подряд.
-* Пароль может сменить только администратор вручную. Если у вас только одна учетная запись администратора и вы забыли от нее пароль - восстановить доступ можно только с помощью манипуляций с базой данных!
+* Any user account can only have one authorization method: password, or Facebook, or Google, etc.
+* It is not possible to change the authorization type for an account once it has been created.
+* Password-based accounts can be locked out if there are too many consecutive failed login attempts.
+* Account password can only be reset by an administrator manually. If you only have one admin account, it is password-based, and the password is lost - there's no way to regain access besides direct database manipulation!
+
+## Docker build, run and push instruction
+
+sudo docker build -t bonsai-app . 
+
+docker run -d -p 8082:80 bonsai-app      
+
+docker tag  bonsai-app  adrianvsaint/relations:latest 
+
+docker push  adrianvsaint/relations:latest 
