@@ -4,7 +4,7 @@
     Layout = "Layout.cshtml";
     ViewBag.DisableSearch = true;
     ViewBag.StartupMode = true;
-    ViewBag.Title = "Загрузка";
+    ViewBag.Title = "Loading";
 
     var hasFailed = Model.Any(x => x.IsFailed);
     var isAfterFailed = false;
@@ -22,12 +22,12 @@
     {
         <p>
             There is and issue during loading RelationS<br/>
-            Подробная информация об ошибке записана в логи.
+            The issue is located in the logs.
         </p>
     }
     else
     {
-        <p>Bonsai загружается...</p>
+        <p>Bonsai is loading...</p>
     }
     
     @foreach (var task in Model)
@@ -66,6 +66,6 @@
     
     @if (!hasFailed)
     {
-        <p>Откиньтесь на спинку кресла и отдохните - это займет не более минуты :)</p>
+        <p>Be sure you got a rest befor the proces is executed :)</p>
     }
 </div>

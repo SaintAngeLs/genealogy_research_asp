@@ -55,12 +55,12 @@ namespace Bonsai.Areas.Admin.Logic.Changesets
             var photoUrl = GetMediaThumbnailPath(data.MainPhotoKey);
             var facts = await RenderFactsAsync(data.Type, data.Facts);
 
-            Add(nameof(PageEditorVM.Title), "Название", data.Title);
-            Add(nameof(PageEditorVM.MainPhotoKey), "Фото", photoUrl == null ? null : ViewHelper.RenderMediaThumbnail(photoUrl));
-            Add(nameof(PageEditorVM.Type), "Тип", isEmpty ? null :  data.Type.GetEnumDescription());
-            Add(nameof(PageEditorVM.Description), "Текст", data.Description);
-            Add(nameof(PageEditorVM.Aliases), "Псевдонимы", data.Aliases == null ? null : ViewHelper.RenderBulletList(_html, aliases));
-            Add(nameof(PageEditorVM.Facts), "Факты", facts);
+            Add(nameof(PageEditorVM.Title), "Title", data.Title);
+            Add(nameof(PageEditorVM.MainPhotoKey), "Photo", photoUrl == null ? null : ViewHelper.RenderMediaThumbnail(photoUrl));
+            Add(nameof(PageEditorVM.Type), "Type", isEmpty ? null :  data.Type.GetEnumDescription());
+            Add(nameof(PageEditorVM.Description), "Text", data.Description);
+            Add(nameof(PageEditorVM.Aliases), "Pseudonims", data.Aliases == null ? null : ViewHelper.RenderBulletList(_html, aliases));
+            Add(nameof(PageEditorVM.Facts), "Facts", facts);
 
             return result;
 

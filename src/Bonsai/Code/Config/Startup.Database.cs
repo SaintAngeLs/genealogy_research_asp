@@ -51,43 +51,43 @@ namespace Bonsai.Code.Config
             var sp = scope.ServiceProvider;
             var demoCfg = Configuration.DemoMode ?? new DemoModeConfig(); // all false
 
-            startupService.AddTask(
-                "DatabaseMigrate",
-                "Подготовка базы",
-                async () =>
-                {
-                    var db = sp.GetService<AppDbContext>();
-                    await db.EnsureDatabaseCreatedAsync();
-                    await db.EnsureSystemItemsCreatedAsync();
-                }
-            );
+            // startupService.AddTask(
+            //     "DatabaseMigrate",
+            //     "DataBase preparation",
+            //     async () =>
+            //     {
+            //         var db = sp.GetService<AppDbContext>();
+            //         await db.EnsureDatabaseCreatedAsync();
+            //         await db.EnsureSystemItemsCreatedAsync();
+            //     }
+            // );
 
-            if (demoCfg.Enabled)
-            {
-                if (demoCfg.ClearOnStartup)
-                {
-                    startupService.AddTask(
-                        "DatabaseClear",
-                        "Очистка базы данных",
-                        () => SeedData.ClearPreviousDataAsync(sp.GetService<AppDbContext>())
-                    );
-                }
+            // if (demoCfg.Enabled)
+            // {
+            //     if (demoCfg.ClearOnStartup)
+            //     {
+            //         startupService.AddTask(
+            //             "DatabaseClear",
+            //             "Dropping Database",
+            //             () => SeedData.ClearPreviousDataAsync(sp.GetService<AppDbContext>())
+            //         );
+            //     }
 
-                if (demoCfg.CreateDefaultPages || demoCfg.CreateDefaultAdmin)
-                {
-                    startupService.AddTask(
-                        "DatabaseSeed",
-                        "Подготовка тестовых данных",
-                        async () =>
-                        {
-                            if (demoCfg.CreateDefaultPages)
-                                await SeedData.EnsureSampleDataSeededAsync(sp.GetService<AppDbContext>());
+            //     if (demoCfg.CreateDefaultPages || demoCfg.CreateDefaultAdmin)
+            //     {
+            //         startupService.AddTask(
+            //             "DatabaseSeed",
+            //             "Testing data preparation",
+            //             async () =>
+            //             {
+            //                 if (demoCfg.CreateDefaultPages)
+            //                     await SeedData.EnsureSampleDataSeededAsync(sp.GetService<AppDbContext>());
 
-                            if (demoCfg.CreateDefaultAdmin)
-                                await SeedData.EnsureDefaultUserCreatedAsync(sp.GetService<UserManager<AppUser>>());
-                        });
-                }
-            }
+            //                 if (demoCfg.CreateDefaultAdmin)
+            //                     await SeedData.EnsureDefaultUserCreatedAsync(sp.GetService<UserManager<AppUser>>());
+            //             });
+            //     }
+            // }
 
             // startupService.AddTask(
             //     "FullTextIndexInit",
@@ -113,6 +113,7 @@ namespace Bonsai.Code.Config
             // startupService.AddTask("CheckMissingMedia", "", () => CheckMissingMediaAsync(sp));
             
             // startupService.AddTask("Finalize", "", async () => scope.Dispose());
+
 
             startupService.RunStartupTasks();
         }

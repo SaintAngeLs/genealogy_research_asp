@@ -55,7 +55,7 @@ namespace Bonsai.Areas.Admin.Controllers
             if (oldValue.TreeRenderThoroughness != vm.TreeRenderThoroughness)
                 await _jobs.RunAsync(JobBuilder.For<EntireTreeLayoutJob>().SupersedeAll());
 
-            return RedirectToSuccess("Настройки сохранены");
+            return RedirectToSuccess("Changes are saved");
         }
     }
 }

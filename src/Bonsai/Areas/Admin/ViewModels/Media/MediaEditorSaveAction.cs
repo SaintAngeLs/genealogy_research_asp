@@ -10,13 +10,13 @@ namespace Bonsai.Areas.Admin.ViewModels.Media
         /// <summary>
         /// Just save the current editor.
         /// </summary>
-        [Description("Сохранить")]
+        [Description("Save")]
         Save = 0,
 
         /// <summary>
         /// Save the editor and edit the next media without tags.
         /// </summary>
-        [Description("Сохранить и открыть следующий")]
+        [Description("Save and open other")]
         SaveAndShowNext = 1,
     }
 }
