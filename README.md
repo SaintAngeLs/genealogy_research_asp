@@ -55,6 +55,33 @@ A family wiki and photoalbum engine (in Russian).
    ```
 5. After everything is brought up Bonsai will listen on port `8080`.
 
+## Developemnt with Docker
+
+1. Rebuild the exisint docker image:
+
+
+```
+sudo docker build -t bonsai-app . 
+```
+
+2. Run the docker image:
+
+```
+docker run -d -p 8082:80 bonsai-app      
+```
+3. Log in to the docker
+
+```
+docker login
+```
+
+4. Push the docker image to the dokcerhub with (in this case change the *adrianvsain* to your dokcerhub login)
+docker tag  bonsai-app  adrianvsaint/relations:latest 
+
+5. Push the docker image to the dockerhun space
+```
+docker push  adrianvsaint/relations:latest 
+```
 ## Development (on Windows)
 
 For development, you will need the following:
@@ -149,12 +176,3 @@ Please keep the following facts in mind:
 * Password-based accounts can be locked out if there are too many consecutive failed login attempts.
 * Account password can only be reset by an administrator manually. If you only have one admin account, it is password-based, and the password is lost - there's no way to regain access besides direct database manipulation!
 
-## Docker build, run and push instruction
-
-sudo docker build -t bonsai-app . 
-
-docker run -d -p 8082:80 bonsai-app      
-
-docker tag  bonsai-app  adrianvsaint/relations:latest 
-
-docker push  adrianvsaint/relations:latest 
